@@ -138,7 +138,7 @@ export default function Hero() {
       </div>
 
       {/* Content - Centered & Interactive */}
-      <Container className="relative z-20 perspective-1000">
+      <Container className="relative z-20 py-8 sm:py-0 perspective-1000">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -146,7 +146,7 @@ export default function Hero() {
           className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto px-4"
         >
           <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-block py-1 px-3 rounded-full bg-saffron/10 border border-saffron/20 text-saffron-light text-sm font-semibold tracking-wider uppercase">
+            <span className="inline-block py-2 px-3 sm:py-1  rounded-full bg-saffron/10 border border-saffron/20 text-saffron-light text-xs sm:text-sm font-semibold tracking-wider uppercase">
               Welcome to the Future of Character
             </span>
           </motion.div>
@@ -166,7 +166,7 @@ export default function Hero() {
             variants={itemVariants}
             className="text-lg md:text-xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto"
           >
-            BACE provides a sanctuary for holistic growth, merging academic
+            BACE a vedic hostel, provides a sanctuary for holistic growth, merging academic
             excellence with the timeless wisdom of Vedic values. Discover
             clarity, purpose, and community.
           </motion.p>
@@ -207,7 +207,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
+        className="hidden sm:block absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20"
       >
         <div className="flex flex-col items-center gap-2">
           <span className="text-xs text-white/50 uppercase tracking-widest">

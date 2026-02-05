@@ -91,6 +91,17 @@ export default function Header() {
                 >
                   BACE
                 </text>
+                <text
+                  x="200"
+                  y="58"
+                  fontFamily="serif"
+                  fontWeight="bold"
+                  fontSize="25"
+                  letterSpacing="1"
+                  className={showSolidBg ? "fill-saffron" : "fill-white"}
+                >
+                  BYC
+                </text>
               </svg>
             </div>
           </Link>
