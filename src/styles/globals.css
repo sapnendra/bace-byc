@@ -31,3 +31,40 @@
     @apply py-16 md:py-24 lg:py-32;
   }
 }
+
+/* Smooth Infinite Marquee Animations */
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-33.333%);
+  }
+}
+
+@keyframes marquee-rtl {
+  0% {
+    transform: translateX(-33.333%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-ltr {
+  animation: marquee-ltr 40s linear infinite;
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 40s linear infinite;
+}
+
+.marquee-row {
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.animate-marquee-ltr:hover,
+.animate-marquee-rtl:hover {
+  animation-play-state: paused;
+}

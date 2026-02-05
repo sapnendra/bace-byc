@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import SeminarsMarquee from "@/components/home/SeminarsMarquee";
 import WhatIsBACE from "@/components/home/WhatIsBACE";
 import WhyBACEMatters from "@/components/home/WhyBACEMatters";
 import WhatStudentsLearn from "@/components/home/WhatStudentsLearn";
@@ -14,6 +15,7 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
+        <SeminarsMarquee />
         <WhatIsBACE />
         <WhyBACEMatters />
         <WhatStudentsLearn />
