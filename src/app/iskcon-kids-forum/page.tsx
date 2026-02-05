@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -50,13 +51,15 @@ export default function IKFPage() {
               little hearts.
             </p>
             <div className="flex justify-center gap-4">
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-orange-500 hover:bg-orange-600 text-white border-none rounded-full px-8 text-lg shadow-lg shadow-orange-500/30"
-              >
-                Start the Adventure
-              </Button>
+              <Link href="/admissions">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="bg-orange-500 hover:bg-orange-600 text-white border-none rounded-full px-8 text-lg shadow-lg shadow-orange-500/30"
+                >
+                  Start the Adventure
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
@@ -179,12 +182,14 @@ export default function IKFPage() {
                   <p className="font-bold text-forest">Upcoming Batch:</p>
                   <p className="text-xl font-serif">Sunday, 10:00 AM</p>
                 </div>
-                <Button
-                  variant="outline"
-                  className="border-orange-500 text-orange-600 hover:bg-orange-50"
-                >
-                  Contact Coordinator
-                </Button>
+                <Link href="/admissions">
+                  <Button
+                    variant="outline"
+                    className="border-orange-500 text-orange-600 hover:bg-orange-50"
+                  >
+                    Contact Coordinator
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

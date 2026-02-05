@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -52,20 +53,24 @@ export default function IYFPage() {
               with like-minded peers.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-saffron hover:bg-saffron-light text-white border-none"
-              >
-                Join the Movement
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-white border-white hover:bg-white/10"
-              >
-                Upcoming Events
-              </Button>
+              <Link href="/admissions">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="bg-saffron hover:bg-saffron-light text-white border-none"
+                >
+                  Join the Movement
+                </Button>
+              </Link>
+              <Link href="/events">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-white border-white hover:bg-white/10"
+                >
+                  Upcoming Events
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
@@ -221,12 +226,14 @@ export default function IYFPage() {
                   </div>
                 </div>
                 <div className="mt-10">
-                  <Button
-                    variant="primary"
-                    className="bg-white text-charcoal hover:bg-gray-100"
-                  >
-                    Register for Next Batch
-                  </Button>
+                  <Link href="/admissions">
+                    <Button
+                      variant="primary"
+                      className="bg-white text-charcoal hover:bg-gray-100"
+                    >
+                      Register for Next Batch
+                    </Button>
+                  </Link>
                 </div>
               </div>
               <div className="hidden md:block">
@@ -256,13 +263,15 @@ export default function IYFPage() {
               Join thousands of students who have found their path, purpose, and
               people at IYF.
             </p>
-            <Button
-              variant="primary"
-              size="lg"
-              className="shadow-xl shadow-saffron/20"
-            >
-              Get Connected <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
+            <Link href="/admissions">
+              <Button
+                variant="primary"
+                size="lg"
+                className="shadow-xl shadow-saffron/20"
+              >
+                Get Connected <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </Link>
           </div>
         </Container>
       </Section>

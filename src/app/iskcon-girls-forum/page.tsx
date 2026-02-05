@@ -1,5 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import Button from "@/components/ui/Button";
@@ -46,13 +47,15 @@ export default function IGFPage() {
               timeless values.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button
-                variant="primary"
-                size="lg"
-                className="bg-forest hover:bg-forest-light text-white border-none shadow-lg shadow-forest/20"
-              >
-                Join Our Community
-              </Button>
+              <Link href="/admissions">
+                <Button
+                  variant="primary"
+                  size="lg"
+                  className="bg-forest hover:bg-forest-light text-white border-none shadow-lg shadow-forest/20"
+                >
+                  Join Our Community
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
@@ -199,12 +202,14 @@ export default function IGFPage() {
                 Whether you are a student, a working professional, or a
                 homemaker, IGF offers you the tools to excel in every role.
               </p>
-              <Button
-                variant="primary"
-                className="bg-white text-forest hover:bg-forest-light hover:text-white transition-colors"
-              >
-                Connect on WhatsApp
-              </Button>
+              <Link href="/admissions">
+                <Button
+                  variant="primary"
+                  className="bg-white text-forest hover:bg-forest-light hover:text-white transition-colors"
+                >
+                  Connect on WhatsApp
+                </Button>
+              </Link>
             </div>
           </div>
         </Container>
