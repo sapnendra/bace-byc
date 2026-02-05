@@ -65,8 +65,8 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>© {currentYear} BACE. All rights reserved.</p>
             <p className="mt-2 md:mt-0">
-              Inspired by the educational mission of{" "}
-              <span className="text-white">ISKCON</span>
+              Design and Developed by{" "}
+              <span className="text-white"><a href="https://sapnendra.tech" target="_blank">Sapnendra</a></span>
             </p>
           </div>
         </div>
