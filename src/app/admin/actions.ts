@@ -498,7 +498,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
       return {
         date: date.toLocaleString("default", {
           month: "short",
-          year: "2-digit",
+          year: "numeric",
         }),
         count: item.count,
       };
@@ -510,7 +510,7 @@ export async function getDashboardStats(): Promise<DashboardStats> {
       d.setMonth(d.getMonth() - i);
       const label = d.toLocaleString("default", {
         month: "short",
-        year: "2-digit",
+        year: "numeric",
       });
       if (!registrationHistory.find((r) => r.date === label)) {
         registrationHistory.push({ date: label, count: 0 });
@@ -521,8 +521,8 @@ export async function getDashboardStats(): Promise<DashboardStats> {
       const [monthA, yearA] = a.date.split(" ");
       const [monthB, yearB] = b.date.split(" ");
       return (
-        new Date(`${monthA} 1, 20${yearA}`).getTime() -
-        new Date(`${monthB} 1, 20${yearB}`).getTime()
+        new Date(`${monthA} 1, ${yearA}`).getTime() -
+        new Date(`${monthB} 1, ${yearB}`).getTime()
       );
     });
 
