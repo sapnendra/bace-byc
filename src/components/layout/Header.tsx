@@ -19,32 +19,33 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-
+    
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
+  
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
+    { href: "/gallery", label: "Gallery" },
     {
-      label: "Forums & Programs",
+      label: "Programs",
       dropdown: [
         { href: "/iskcon-youth-forum", label: "ISKCON Youth Forum" },
         { href: "/iskcon-girls-forum", label: "ISKCON Girls Forum" },
         { href: "/iskcon-kids-forum", label: "ISKCON Kids Forum" },
+        { href: "/seminars", label: "Lectures & Seminars" },
       ],
     },
     {
       label: "Campus Life",
       dropdown: [
-        { href: "/events-courses", label: "Events & Courses" },
+        { href: "/alumni", label: "Our Alumni" },
         { href: "/hostel-life", label: "Hostel Life" },
-        { href: "/seminars", label: "Our Seminars" },
+        { href: "/events-courses", label: "Events & Courses" },
+        { href: "/parents", label: "What Parents Says" },
       ],
     },
-    { href: "/parents", label: "Parents" },
-    { href: "/gallery", label: "Gallery" },
+    { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -92,7 +93,7 @@ export default function Header() {
                   BACE
                 </text>
                 <text
-                  x="200"
+                  x="190"
                   y="58"
                   fontFamily="serif"
                   fontWeight="bold"
@@ -107,7 +108,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-2 xl:space-x-4">
+          <nav className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => {
               const isActive = link.dropdown
                 ? link.dropdown.some((item) => item.href === pathname)

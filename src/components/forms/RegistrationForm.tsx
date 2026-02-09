@@ -76,6 +76,16 @@ export default function RegistrationForm() {
           }
         });
         setErrors(fieldErrors);
+
+        // Scroll to first error
+        const firstErrorField = Object.keys(fieldErrors)[0];
+        if (firstErrorField) {
+          const element = document.getElementById(firstErrorField);
+          if (element) {
+            element.scrollIntoView({ behavior: "smooth", block: "center" });
+            element.focus();
+          }
+        }
       } else {
         setSubmitStatus("error");
       }
@@ -86,6 +96,8 @@ export default function RegistrationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* ... previous code ... */}
+
       {/* Name */}
       <div>
         <label
@@ -248,6 +260,22 @@ export default function RegistrationForm() {
           placeholder="Any questions or additional information you'd like to share?"
         />
       </div>
+
+      {/* Form Level Error Message */}
+      {Object.keys(errors).length > 0 && (
+        <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-lg text-sm flex items-center">
+          <svg
+            className="w-5 h-5 mr-2"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <circle cx="12" cy="12" r="10" strokeWidth="2" />
+            <path strokeLinecap="round" strokeWidth="2" d="M12 8v4m0 4h.01" />
+          </svg>
+          Please fix the errors above before submitting.
+        </div>
+      )}
 
       {/* Submit Button */}
       <div>
