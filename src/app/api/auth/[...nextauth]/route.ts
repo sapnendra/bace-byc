@@ -20,13 +20,19 @@ export const authOptions: NextAuthOptions = {
         await dbConnect();
 
         // Find user with admin role
+        console.log(
+          "Attempting admin login for:",
+          credentials.email.toLowerCase(),
+        );
+
         const user = await User.findOne({
           email: credentials.email.toLowerCase(),
           role: "admin",
         }).select("+password");
 
         if (!user) {
-          throw new Error("Invalid admin credentials");
+          console.log("Admin user not found or does not have admin role");
+          return null; // Return null instead of throwing error for proper 401
         }
 
         // Verify password
@@ -36,8 +42,11 @@ export const authOptions: NextAuthOptions = {
         );
 
         if (!isPasswordValid) {
-          throw new Error("Invalid admin credentials");
+          console.log("Invalid password provided");
+          return null; // Return null instead of throwing error for proper 401
         }
+
+        console.log("Admin login successful for:", user.email);
 
         // Return user object (password will be filtered by schema toJSON)
         return {

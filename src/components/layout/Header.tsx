@@ -180,7 +180,7 @@ export default function Header() {
           <div className="hidden lg:block">
             <Link href="/admissions">
               <Button variant="primary" size="sm">
-                Register Now
+                Student Registration
               </Button>
             </Link>
           </div>
@@ -279,7 +279,7 @@ export default function Header() {
               <div className="pt-2">
                 <Link href="/admissions" onClick={() => setIsMenuOpen(false)}>
                   <Button variant="primary" size="sm" className="w-full">
-                    Register Now
+                    Student Registration
                   </Button>
                 </Link>
               </div>

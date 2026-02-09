@@ -1,5 +1,8 @@
+"use client";
+
 import Container from "../ui/Container";
 import Section from "../ui/Section";
+import { motion } from "framer-motion";
 
 export default function WhatStudentsLearn() {
   const learningOutcomes = [
@@ -50,52 +53,123 @@ export default function WhatStudentsLearn() {
   return (
     <Section background="white">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-charcoal mb-4">
-            What Students Learn at BACE
+        <div className="text-center mb-20">
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 bg-saffron/10 text-saffron text-sm font-semibold rounded-full">
+              Learning Path
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-charcoal mb-6">
+            What Students{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron to-gold">
+              Learn
+            </span>{" "}
+            at BACE
           </h2>
-          <p className="text-xl text-charcoal-light max-w-3xl mx-auto">
+          <p className="text-xl text-charcoal-light max-w-3xl mx-auto leading-relaxed">
             BACE offers more than information — it provides education for life.
             Students learn to understand themselves, manage their minds, and
             live with clarity.
           </p>
         </div>
 
-        <div className="space-y-6">
-          {learningOutcomes.map((outcome, index) => (
-            <div
-              key={index}
-              className={`grid md:grid-cols-12 gap-6 p-6 rounded-lg transition-all duration-300 hover:shadow-lg ${
-                index % 2 === 0
-                  ? "bg-beige-soft"
-                  : "bg-white border border-beige"
-              }`}
-            >
-              <div className="md:col-span-2 flex items-start">
-                <span className="text-5xl font-serif font-bold text-saffron/30">
-                  {outcome.number}
-                </span>
-              </div>
-              <div className="md:col-span-10">
-                <h3 className="text-2xl font-semibold text-charcoal mb-3">
-                  {outcome.title}
-                </h3>
-                <p className="text-charcoal-light leading-relaxed">
-                  {outcome.description}
-                </p>
-              </div>
-            </div>
-          ))}
+        {/* Timeline Layout */}
+        <div className="relative space-y-16">
+          {/* Vertical Line */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-saffron via-forest to-saffron"></div>
+
+          {learningOutcomes.map((outcome, index) => {
+            const isEven = index % 2 === 0;
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div
+                  className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
+                    isEven ? "" : "lg:grid-flow-dense"
+                  }`}
+                >
+                  {/* Content */}
+                  <div
+                    className={`relative ${
+                      isEven
+                        ? "lg:text-right lg:pr-8"
+                        : "lg:col-start-2 lg:pl-8"
+                    }`}
+                  >
+                    <div className="bg-gradient-to-br from-white to-beige-soft border-2 border-beige rounded-2xl p-8 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                      {/* Number Badge */}
+                      <div
+                        className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-br from-saffron to-gold text-white font-bold text-xl mb-4 ${
+                          isEven
+                            ? "lg:float-right lg:ml-4"
+                            : "lg:float-left lg:mr-4"
+                        }`}
+                      >
+                        {outcome.number}
+                      </div>
+
+                      <h3 className="text-2xl md:text-3xl font-bold text-charcoal mb-4">
+                        {outcome.title}
+                      </h3>
+                      <p className="text-lg text-charcoal-light leading-relaxed">
+                        {outcome.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Timeline Dot (Desktop only) */}
+                  <div className="hidden lg:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-saffron to-gold border-4 border-white shadow-lg"></div>
+                  </div>
+
+                  {/* Empty Column for Spacing */}
+                  <div
+                    className={`hidden lg:block ${isEven ? "lg:col-start-2" : ""}`}
+                  ></div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
 
-        <div className="mt-12 text-center bg-forest/5 p-8 rounded-lg">
-          <p className="text-lg text-charcoal font-medium">
-            <strong className="text-forest">Outcome:</strong> Students don't
-            just gain knowledge — they gain clarity of thought, emotional
-            strength, moral grounding, purposeful direction, and a supportive
-            value-based community.
-          </p>
-        </div>
+        {/* Bottom Summary */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-20 relative overflow-hidden"
+        >
+          <div className="bg-gradient-to-r from-forest via-forest-light to-forest rounded-3xl p-12 shadow-2xl text-center relative">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-saffron rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 left-0 w-64 h-64 bg-gold rounded-full blur-3xl"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+                The Outcome
+              </h3>
+              <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+                Students don't just gain knowledge — they gain{" "}
+                <strong className="text-saffron">clarity of thought</strong>,{" "}
+                <strong className="text-saffron">emotional strength</strong>,{" "}
+                <strong className="text-saffron">moral grounding</strong>,{" "}
+                <strong className="text-saffron">purposeful direction</strong>,
+                and a supportive value-based community.
+              </p>
+            </div>
+          </div>
+        </motion.div>
       </Container>
     </Section>
   );

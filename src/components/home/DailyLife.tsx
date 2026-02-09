@@ -1,11 +1,14 @@
+"use client";
+
 import Container from "../ui/Container";
 import Section from "../ui/Section";
+import { Sunrise, BookOpen, UtensilsCrossed, Sunset, Moon } from "lucide-react";
 
 export default function DailyLife() {
   const dailySchedule = [
     {
       time: "Morning",
-      icon: "🌅",
+      icon: Sunrise,
       title: "Setting the Tone",
       activities: [
         "Early rising for freshness and alertness",
@@ -13,11 +16,12 @@ export default function DailyLife() {
         "Light physical activity",
         "Mental clarity before the day begins",
       ],
-      color: "from-saffron-light to-gold",
+      gradient: "from-amber-400 via-orange-400 to-yellow-300",
+      bgGradient: "from-amber-50 to-orange-50",
     },
     {
       time: "Daytime",
-      icon: "📚",
+      icon: BookOpen,
       title: "Academics & Responsibilities",
       activities: [
         "Attend college or university classes",
@@ -25,11 +29,12 @@ export default function DailyLife() {
         "Academic support and guidance",
         "Personal responsibility and discipline",
       ],
-      color: "from-forest-light to-forest",
+      gradient: "from-emerald-500 via-teal-500 to-cyan-500",
+      bgGradient: "from-emerald-50 to-teal-50",
     },
     {
       time: "Food & Lifestyle",
-      icon: "🍽️",
+      icon: UtensilsCrossed,
       title: "Clean and Conscious Living",
       activities: [
         "Nutritious vegetarian meals",
@@ -37,11 +42,12 @@ export default function DailyLife() {
         "Clean, organized spaces",
         "Conscious lifestyle choices",
       ],
-      color: "from-beige to-saffron-muted",
+      gradient: "from-saffron via-gold to-amber-400",
+      bgGradient: "from-orange-50 to-amber-50",
     },
     {
       time: "Evening",
-      icon: "🌇",
+      icon: Sunset,
       title: "Learning & Community",
       activities: [
         "Interactive learning sessions",
@@ -49,11 +55,12 @@ export default function DailyLife() {
         "Life skills and values education",
         "Cultural and intellectual engagement",
       ],
-      color: "from-saffron to-saffron-light",
+      gradient: "from-orange-500 via-red-400 to-pink-400",
+      bgGradient: "from-orange-50 to-pink-50",
     },
     {
       time: "Night",
-      icon: "🌙",
+      icon: Moon,
       title: "Rest & Recovery",
       activities: [
         "Calm atmosphere for winding down",
@@ -61,7 +68,8 @@ export default function DailyLife() {
         "Limited distractions",
         "Mental peace and restoration",
       ],
-      color: "from-charcoal to-charcoal-light",
+      gradient: "from-indigo-600 via-purple-600 to-blue-700",
+      bgGradient: "from-indigo-50 to-purple-50",
     },
   ];
 
@@ -69,91 +77,165 @@ export default function DailyLife() {
     <Section background="white">
       <Container>
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-charcoal mb-4">
-            Daily Life at BACE
+          <div className="inline-block mb-4">
+            <span className="px-4 py-2 bg-forest/10 text-forest text-sm font-semibold rounded-full">
+              A Day in BACE
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold text-charcoal mb-6">
+            Daily Life at{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron to-forest">
+              BACE
+            </span>
           </h2>
-          <p className="text-xl text-charcoal-light max-w-3xl mx-auto">
+          <p className="text-xl text-charcoal-light max-w-3xl mx-auto leading-relaxed">
             Life at BACE is designed around a simple principle:{" "}
             <strong>discipline should support freedom, not suppress it.</strong>
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {dailySchedule.map((period, index) => (
-            <div
-              key={index}
-              className="bg-white border-2 border-beige rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-            >
-              <div
-                className={`w-16 h-16 bg-gradient-to-br ${period.color} rounded-full flex items-center justify-center text-3xl mb-4`}
-              >
-                {period.icon}
-              </div>
-              <div className="text-sm text-saffron font-semibold mb-1">
-                {period.time}
-              </div>
-              <h3 className="text-xl font-semibold text-charcoal mb-4">
-                {period.title}
-              </h3>
-              <ul className="space-y-2">
-                {period.activities.map((activity, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start text-sm text-charcoal-light"
-                  >
-                    <svg
-                      className="w-4 h-4 text-forest mr-2 flex-shrink-0 mt-0.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+        {/* Horizontal Scrollable Timeline */}
+        <div className="relative">
+          {/* Scroll Container */}
+          <div className="overflow-x-auto pb-8 snap-x snap-mandatory scrollbar-hide -mx-4 px-4">
+            <div className="flex gap-6 min-w-max">
+              {dailySchedule.map((period, index) => {
+                const Icon = period.icon;
+                return (
+                  <div key={index} className="snap-center w-80 flex-shrink-0">
+                    <div
+                      className={`bg-gradient-to-br ${period.bgGradient} rounded-3xl p-8 h-full border-2 border-white shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-500`}
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    {activity}
-                  </li>
-                ))}
-              </ul>
+                      {/* Icon with Gradient */}
+                      <div
+                        className={`w-20 h-20 bg-gradient-to-br ${period.gradient} rounded-2xl flex items-center justify-center mb-6 shadow-lg`}
+                      >
+                        <Icon
+                          className="w-10 h-10 text-white"
+                          strokeWidth={2}
+                        />
+                      </div>
+
+                      {/* Time Badge */}
+                      <div className="inline-block px-4 py-1 bg-white/80 backdrop-blur-sm rounded-full text-sm font-bold text-charcoal mb-3">
+                        {period.time}
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-2xl font-bold text-charcoal mb-6">
+                        {period.title}
+                      </h3>
+
+                      {/* Activities */}
+                      <ul className="space-y-3">
+                        {period.activities.map((activity, i) => (
+                          <li
+                            key={i}
+                            className="flex items-start text-charcoal-light"
+                          >
+                            <span
+                              className={`w-2 h-2 rounded-full bg-gradient-to-br ${period.gradient} mt-2 mr-3 flex-shrink-0`}
+                            ></span>
+                            <span className="text-sm leading-relaxed">
+                              {activity}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          ))}
-        </div>
-
-        <div className="mt-12 grid md:grid-cols-2 gap-8">
-          <div className="bg-beige p-8 rounded-lg">
-            <h4 className="text-xl font-semibold text-charcoal mb-3">
-              ⚖️ Discipline That Builds Freedom
-            </h4>
-            <ul className="space-y-2 text-charcoal-light">
-              <li>• Explained, not imposed</li>
-              <li>• Practiced with understanding</li>
-              <li>• Supported through mentorship</li>
-            </ul>
           </div>
-          <div className="bg-forest/10 p-8 rounded-lg">
-            <h4 className="text-xl font-semibold text-charcoal mb-3">
-              🧭 Freedom With Responsibility
-            </h4>
-            <ul className="space-y-2 text-charcoal-light">
-              <li>• Ask questions openly</li>
-              <li>• Think independently</li>
-              <li>• Take ownership of actions</li>
-            </ul>
+
+          {/* Scroll Hint (Mobile) */}
+          <div className="text-center mt-4 text-sm text-charcoal-light md:hidden">
+            ← Swipe to explore the day →
           </div>
         </div>
 
-        <div className="mt-8 text-center bg-saffron/5 p-6 rounded-lg border-2 border-saffron/20">
-          <p className="text-lg text-charcoal font-medium">
-            Daily life at BACE creates a rhythm where{" "}
-            <strong className="text-saffron">
-              routine strengthens discipline, discipline protects freedom, and
-              freedom leads to growth.
-            </strong>
-          </p>
+        {/* Bottom Info Cards */}
+        <div className="mt-16 grid md:grid-cols-2 gap-8">
+          <div className="bg-gradient-to-br from-saffron/10 to-gold/10 rounded-3xl p-8 border-2 border-saffron/20">
+            <h4 className="text-2xl font-bold text-charcoal mb-4 flex items-center gap-3">
+              <span className="w-10 h-10 bg-saffron rounded-xl flex items-center justify-center text-white text-xl">
+                ⚖️
+              </span>
+              Discipline That Builds Freedom
+            </h4>
+            <ul className="space-y-3 text-charcoal-light">
+              <li className="flex items-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-saffron mt-2 mr-3"></span>
+                Explained, not imposed
+              </li>
+              <li className="flex items-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-saffron mt-2 mr-3"></span>
+                Practiced with understanding
+              </li>
+              <li className="flex items-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-saffron mt-2 mr-3"></span>
+                Supported through mentorship
+              </li>
+            </ul>
+          </div>
+
+          <div className="bg-gradient-to-br from-forest/10 to-teal-100/50 rounded-3xl p-8 border-2 border-forest/20">
+            <h4 className="text-2xl font-bold text-charcoal mb-4 flex items-center gap-3">
+              <span className="w-10 h-10 bg-forest rounded-xl flex items-center justify-center text-white text-xl">
+                🧭
+              </span>
+              Freedom With Responsibility
+            </h4>
+            <ul className="space-y-3 text-charcoal-light">
+              <li className="flex items-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-forest mt-2 mr-3"></span>
+                Ask questions openly
+              </li>
+              <li className="flex items-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-forest mt-2 mr-3"></span>
+                Think independently
+              </li>
+              <li className="flex items-start">
+                <span className="w-1.5 h-1.5 rounded-full bg-forest mt-2 mr-3"></span>
+                Take ownership of actions
+              </li>
+            </ul>
+          </div>
         </div>
+
+        {/* Bottom Summary */}
+        <div className="mt-12 relative overflow-hidden">
+          <div className="bg-gradient-to-r from-charcoal via-charcoal-light to-charcoal rounded-3xl p-12 shadow-2xl text-center relative">
+            {/* Background Pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-64 h-64 bg-saffron rounded-full blur-3xl"></div>
+              <div className="absolute bottom-0 right-0 w-64 h-64 bg-forest rounded-full blur-3xl"></div>
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              <p className="text-2xl md:text-3xl font-serif text-white leading-relaxed max-w-4xl mx-auto">
+                Daily life at BACE creates a rhythm where{" "}
+                <strong className="text-saffron">
+                  routine strengthens discipline, discipline protects freedom,
+                  and freedom leads to growth.
+                </strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Custom Scrollbar Styles */}
+        <style jsx>{`
+          .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+          }
+          .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+          }
+        `}</style>
       </Container>
     </Section>
   );

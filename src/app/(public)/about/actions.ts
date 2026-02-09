@@ -6,54 +6,75 @@ import Registration from "@/models/Registration";
 export async function getPublicGrowthStats() {
   await dbConnect();
 
-  // Aggregation for Registration History (Last 12 Months for public view)
-  const oneYearAgo = new Date();
-  oneYearAgo.setMonth(oneYearAgo.getMonth() - 11);
-  oneYearAgo.setDate(1); // Start of month
+  // Aggregation for Registration History (Last 30 Days for public view)
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 29); // Start 29 days ago + today = 30 days
+  thirtyDaysAgo.setHours(0, 0, 0, 0);
 
   const registrationAggregation = await Registration.aggregate([
     {
       $match: {
-        createdAt: { $gte: oneYearAgo },
+        createdAt: { $gte: thirtyDaysAgo },
+      },
+    },
+    {
+      $project: {
+        // Use IST timezone (+05:30) for accurate daily grouping
+        year: { $year: { date: "$createdAt", timezone: "+05:30" } },
+        month: { $month: { date: "$createdAt", timezone: "+05:30" } },
+        day: { $dayOfMonth: { date: "$createdAt", timezone: "+05:30" } },
       },
     },
     {
       $group: {
         _id: {
-          year: { $year: "$createdAt" },
-          month: { $month: "$createdAt" },
+          year: "$year",
+          month: "$month",
+          day: "$day",
         },
         count: { $sum: 1 },
       },
     },
     {
-      $sort: { "id.year": 1, "id.month": 1 },
+      $sort: { "_id.year": 1, "_id.month": 1, "_id.day": 1 },
     },
   ]);
 
+  console.log(
+    "Aggregation Result:",
+    JSON.stringify(registrationAggregation, null, 2),
+  );
+
   // Format for chart
   const growthData = registrationAggregation.map((item) => {
-    const date = new Date(item._id.year, item._id.month - 1);
+    const date = new Date(item._id.year, item._id.month - 1, item._id.day);
     return {
-      date: date.toLocaleString("default", { month: "short", year: "2-digit" }),
+      date: date.toLocaleString("default", { month: "short", day: "numeric" }),
       count: item.count,
       fullDate: date.getTime(), // for sorting
     };
   });
 
-  // Fill gaps
-  for (let i = 0; i < 12; i++) {
+  // Fill gaps for the last 30 days
+  for (let i = 0; i < 30; i++) {
     const d = new Date();
-    d.setMonth(d.getMonth() - i);
+    d.setDate(d.getDate() - i);
     const label = d.toLocaleString("default", {
       month: "short",
-      year: "2-digit",
+      day: "numeric",
     });
+    // Check if this date exists in our data
+    // We need to match somewhat loosely because of potential time differences?
+    // Actually exact string match on the label should work if generated identically
     if (!growthData.find((r: any) => r.date === label)) {
       growthData.push({
         date: label,
         count: 0,
-        fullDate: new Date(d.getFullYear(), d.getMonth()).getTime(),
+        fullDate: new Date(
+          d.getFullYear(),
+          d.getMonth(),
+          d.getDate(),
+        ).getTime(),
       });
     }
   }

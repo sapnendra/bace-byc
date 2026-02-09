@@ -1,68 +1,120 @@
+"use client";
+
 import Container from "../ui/Container";
 import Section from "../ui/Section";
+import { BookOpen, Sparkles, Target } from "lucide-react";
 
 export default function WhatIsBACE() {
+  const pillars = [
+    {
+      icon: Target,
+      title: "Character",
+      description: "Building strong moral foundations",
+    },
+    {
+      icon: Sparkles,
+      title: "Clarity",
+      description: "Understanding life's purpose",
+    },
+    {
+      icon: BookOpen,
+      title: "Consciousness",
+      description: "Spiritual wisdom & awareness",
+    },
+  ];
+
   return (
     <Section id="what-is-bace" background="white">
       <Container>
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div>
-            <h2 className="text-4xl md:text-5xl font-serif font-bold text-charcoal mb-6">
-              What is BACE?
+        <div className="grid lg:grid-cols-5 gap-12 items-center">
+          {/* Text Content - Takes 3 columns */}
+          <div className="lg:col-span-3 space-y-6">
+            <div className="inline-block">
+              <span className="px-4 py-2 bg-saffron/10 text-saffron text-sm font-semibold rounded-full">
+                Our Foundation
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-charcoal leading-tight">
+              What is{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron to-gold">
+                BACE
+              </span>
+              ?
             </h2>
-            <div className="space-y-4 text-lg text-charcoal-light leading-relaxed">
-              <p>
-                <strong className="text-saffron-dark">
+
+            <div className="space-y-5 text-lg text-charcoal-light leading-relaxed">
+              <p className="text-xl font-medium text-charcoal">
+                <strong className="text-saffron">
                   Bhaktivedanta Academic and Cultural Education (BACE)
                 </strong>{" "}
                 is a youth-focused educational and cultural initiative inspired
-                by the teachings of the International Society for Krishna
-                Consciousness (ISKCON).
+                by the teachings of ISKCON.
               </p>
+
               <p>
-                BACE aims to nurture character, clarity, and consciousness among
+                We nurture{" "}
+                <strong>character, clarity, and consciousness</strong> among
                 young people through timeless Vedic wisdom, practical life
                 education, and value-based cultural learning.
               </p>
+
               <p>
-                Designed as an extension of ISKCON's mission, BACE addresses the
-                intellectual, emotional, and spiritual needs of today's youth by
-                blending ancient philosophy with modern academic thinking and
-                personal development frameworks.
+                BACE addresses the intellectual, emotional, and spiritual needs
+                of today's youth by blending ancient philosophy with modern
+                academic thinking and personal development frameworks.
               </p>
-              <p>
-                Through structured learning, dialogue, and cultural engagement,
-                BACE empowers youth to live purposeful, balanced, and
-                spiritually grounded lives.
-              </p>
+            </div>
+
+            <div className="pt-4">
+              <div className="inline-flex items-center gap-2 text-saffron font-semibold">
+                <span className="w-12 h-0.5 bg-saffron"></span>
+                Empowering purposeful, balanced, and spiritually grounded lives
+              </div>
             </div>
           </div>
 
-          {/* Visual Content */}
-          <div className="relative">
-            <div className="aspect-square bg-gradient-to-br from-beige to-saffron/20 rounded-2xl flex items-center justify-center p-12">
-              <div className="text-center">
-                <div className="w-32 h-32 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg">
-                  <svg
-                    className="w-16 h-16 text-saffron"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-serif font-bold text-charcoal mb-2">
-                  Character + Clarity + Consciousness
-                </h3>
-                <p className="text-charcoal-light">
-                  The three pillars of BACE's educational mission
+          {/* Visual Content - Takes 2 columns */}
+          <div className="lg:col-span-2 relative">
+            {/* Background Decoration */}
+            <div className="absolute inset-0 bg-gradient-to-br from-saffron/20 via-gold/10 to-transparent rounded-3xl blur-3xl"></div>
+
+            {/* Main Card */}
+            <div className="relative bg-gradient-to-br from-charcoal to-charcoal-light rounded-3xl p-8 shadow-2xl border border-white/10">
+              <h3 className="text-2xl font-serif font-bold text-white mb-8 text-center">
+                Three Pillars of BACE
+              </h3>
+
+              <div className="space-y-6">
+                {pillars.map((pillar, index) => {
+                  const Icon = pillar.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="group bg-white/10 backdrop-blur-sm rounded-2xl p-5 border border-white/20 hover:bg-white/20 hover:scale-105 transition-all duration-300"
+                    >
+                      <div className="flex items-start gap-4">
+                        <div className="w-12 h-12 bg-saffron rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                          <Icon className="w-6 h-6 text-white" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-bold text-white mb-1">
+                            {pillar.title}
+                          </h4>
+                          <p className="text-sm text-gray-300">
+                            {pillar.description}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Accent */}
+              <div className="mt-8 pt-6 border-t border-white/10 text-center">
+                <p className="text-sm text-gray-400 italic">
+                  Education for life, beyond information
                 </p>
               </div>
             </div>

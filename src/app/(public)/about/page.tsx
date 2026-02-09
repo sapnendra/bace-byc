@@ -54,38 +54,42 @@ export default async function AboutPage() {
         <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-charcoal to-transparent z-10" />
 
         <Container className="relative z-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
-                Growing Impact
-              </h2>
-              <p className="text-gray-400 text-lg mb-12">
-                Our community is expanding rapidly as more students discover the
-                value of balancing modern education with timeless wisdom.
-              </p>
+          <div className="space-y-16">
+            {/* Chart Section - Top & Full Width */}
+            <div className="bg-white/5 rounded-3xl p-8 border border-white/10 backdrop-blur-md shadow-2xl w-full">
+              <h3 className="text-white font-medium mb-6 flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-saffron animate-pulse" />
+                New Student Registrations (Last 30 Days)
+              </h3>
+              <GrowthChart data={growthData} />
+            </div>
+
+            {/* Text & Stats Section - Bottom */}
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-6">
+                  Growing Impact
+                </h2>
+                <p className="text-gray-400 text-lg mb-8">
+                  Our community is expanding rapidly as more students discover
+                  the value of balancing modern education with timeless wisdom.
+                </p>
+              </div>
 
               <div className="grid grid-cols-2 gap-8">
                 <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div className="text-4xl font-bold text-saffron mb-2">
-                    {totalStudents + 20}+
+                    {totalStudents + 200}+
                   </div>
                   <div className="text-gray-400 font-medium">Lives Touched</div>
                 </div>
                 <div className="p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm">
                   <div className="text-4xl font-bold text-forest mb-2">6+</div>
                   <div className="text-gray-400 font-medium">
-                    College's Student
+                    College's Students
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-white/5 rounded-3xl p-8 border border-white/10 backdrop-blur-md shadow-2xl">
-              <h3 className="text-white font-medium mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-saffron animate-pulse" />
-                New Student Registrations
-              </h3>
-              <GrowthChart data={growthData} />
             </div>
           </div>
         </Container>

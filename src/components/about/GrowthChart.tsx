@@ -59,6 +59,11 @@ export default function GrowthChart({ data }: GrowthChartProps) {
             axisLine={false}
             tickLine={false}
             tick={{ fill: "rgba(255,255,255,0.7)", fontSize: 12 }}
+            tickFormatter={(value, index) => {
+              // Show label for every 3rd day to avoid crowding
+              if (index % 3 === 0) return value;
+              return "";
+            }}
             dy={10}
           />
           <YAxis
