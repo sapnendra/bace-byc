@@ -356,15 +356,29 @@ export default function Hero() {
 
 // Simple Particles Component
 function Particles() {
-  // Generate random particles
-  const particles = [...Array(20)].map((_, i) => ({
-    id: i,
-    x: Math.random() * 100,
-    y: Math.random() * 100,
-    size: Math.random() * 30 + 1,
-    duration: Math.random() * 10 + 10,
-    delay: Math.random() * 0.5,
-  }));
+  const [particles, setParticles] = React.useState<
+    Array<{
+      id: number;
+      x: number;
+      y: number;
+      size: number;
+      duration: number;
+      delay: number;
+    }>
+  >([]);
+
+  // Generate random particles only on client side
+  React.useEffect(() => {
+    const newParticles = [...Array(20)].map((_, i) => ({
+      id: i,
+      x: Math.random() * 100,
+      y: Math.random() * 100,
+      size: Math.random() * 30 + 1,
+      duration: Math.random() * 10 + 10,
+      delay: Math.random() * 0.5,
+    }));
+    setParticles(newParticles);
+  }, []);
 
   return (
     <div className="absolute inset-0 z-0 pointer-events-none">
