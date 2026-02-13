@@ -5,7 +5,6 @@ import {
   useSpring,
   useTransform,
   useInView,
-  useScroll,
 } from "framer-motion";
 import Link from "next/link";
 import Button from "../ui/Button";
@@ -22,9 +21,6 @@ import {
 import { useEffect, useRef } from "react";
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -100]);
 
   return (
     <section className="relative min-h-screen lg:h-screen flex items-center justify-center overflow-hidden bg-[#FDFBF7] pt-20 lg:pt-0">
@@ -56,9 +52,9 @@ export default function Hero() {
 
       {/* Main Container - Slightly wider than standard */}
       <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 sm:px-12 lg:px-16 max-w-[1540px] mx-auto">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full">
+        <div className="grid lg:grid-cols-12 lg:gap-16 items-center w-full">
           {/* Left Column: Text & CTA (7 Columns) */}
-          <div className="lg:col-span-7 flex flex-col justify-center gap-8 text-center lg:text-left">
+          <div className="lg:col-span-7 flex flex-col justify-center lg:gap-8 text-center lg:text-left py-10">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -145,7 +141,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Animated Stats Card + Compact Features (5 Columns) */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-center gap-6 mt-12 lg:mt-0 lg:items-end">
+          <div className="lg:col-span-5 relative flex flex-col items-center justify-center gap-6 pb-8 md:pb-0 lg:items-end">
             {/* Main Stats Card - Glassmorphism Refined */}
             <motion.div
               initial={{ opacity: 0, y: 0 }}

@@ -80,7 +80,7 @@ export default function Header() {
           >
             {/* SVG Logo */}
             <div
-              className={`relative w-48 h-16 transition-colors duration-300 ${
+              className={`relative w-48 h-16 transition-colors duration-300 -ml-10 md:-ml-0 ${
                 showSolidBg ? "text-saffron" : "text-charcoal"
               }`}
             >
