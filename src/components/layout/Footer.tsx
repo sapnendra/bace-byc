@@ -8,7 +8,7 @@ export default function Footer() {
     { href: "/about", label: "About BACE" },
     { href: "/events-courses", label: "Events & Courses" },
     { href: "/hostel-life", label: "Hostel Life" },
-    { href: "/parents", label: "For Parents" },
+    { href: "/parents-view", label: "For Parents" },
     { href: "/gallery", label: "Gallery" },
     { href: "/admissions", label: "Admissions" },
     { href: "/contact", label: "Contact Us" },
@@ -65,8 +65,8 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
             <p>© {currentYear} BACE. All rights reserved.</p>
             <p className="mt-2 md:mt-0">
-              Design and Developed by{" "}
-              <span className="text-blue-400"><a href="https://sapnendra.tech" target="_blank">Sapnendra</a></span>
+              Powered by{" "}
+              <span className="text-saffron hover:text-saffron-light transition-colors  "><a href="https://sapnendra.dev" target="_blank">Sapnendra.dev</a></span>
             </p>
           </div>
         </div>

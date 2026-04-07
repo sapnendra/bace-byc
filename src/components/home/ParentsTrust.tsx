@@ -165,12 +165,12 @@ export default function ParentsTrust() {
             Ready to Learn More?
           </h3>
           <p className="text-charcoal-light mb-6 max-w-2xl mx-auto">
-            Parents trust BACE because it protects their children's future — not
+            Parents trust BACE because it protects their children's future - not
             by controlling them, but by guiding them with care, clarity, and
             values.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/parents">
+            <Link href="/parents-view">
               <Button variant="secondary" size="lg">
                 For Parents
               </Button>

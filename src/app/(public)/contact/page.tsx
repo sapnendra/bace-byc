@@ -18,6 +18,44 @@ export const metadata: Metadata = {
 };
 
 export default function ContactPage() {
+  const baceLocations = [
+    {
+      name: "Jagannath Puri BACE",
+      city: "Anand Nagar, Bhopal, 462022, Madhya Pradesh",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d646.8265852630576!2d77.48402208876587!3d23.253467714490284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c41c2e5f48aa9%3A0x7e986d1867287184!2sISKCON%20Hostel%20BACE%20BHOPAL!5e0!3m2!1sen!2sin!4v1775548269359!5m2!1sen!2sin",
+    },
+    {
+      name: "Iskcon Youth Center BACE",
+      city: "Saket Nagar, Bhopal, Madhya Pradesh",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2363.2865331309877!2d77.45239185330865!3d23.207842617804143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c430030f894eb%3A0x218ee7f3c9083b13!2sISKCON%20Youth%20Center%20-%20Saket%20Nagar!5e0!3m2!1sen!2sin!4v1775548477946!5m2!1sen!2sin",
+    },
+    {
+      name: "BACE Hostel Pune",
+      city: "Pune, Maharashtra",
+      mapSrc: "https://maps.google.com/maps?q=ISKCON%20Hostel%20Pune&output=embed",
+    },
+    {
+      name: "BACE Hostel Bengaluru",
+      city: "Bengaluru, Karnataka",
+      mapSrc:
+        "https://maps.google.com/maps?q=ISKCON%20Hostel%20Bengaluru&output=embed",
+    },
+    {
+      name: "BACE Hostel Hyderabad",
+      city: "Hyderabad, Telangana",
+      mapSrc:
+        "https://maps.google.com/maps?q=ISKCON%20Hostel%20Hyderabad&output=embed",
+    },
+    {
+      name: "Iskcon Youth Center BACE",
+      city: "Saket Nagar, Bhopal, Madhya Pradesh",
+      mapSrc:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2363.2865331309877!2d77.45239185330865!3d23.207842617804143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c430030f894eb%3A0x218ee7f3c9083b13!2sISKCON%20Youth%20Center%20-%20Saket%20Nagar!5e0!3m2!1sen!2sin!4v1775548477946!5m2!1sen!2sin",
+    },
+  ];
+
   return (
     <main className="pt-20 bg-beige-soft">
       {/* Hero Section */}
@@ -235,39 +273,39 @@ export default function ContactPage() {
       {/* Map Section */}
       <Section className="pb-24 pt-0">
         <Container>
-          <div className="bg-white p-4 rounded-2xl shadow-lg border border-beige-200">
-            <div className="h-[400px] w-full bg-beige-soft rounded-xl overflow-hidden relative group">
-              {/* Map Placeholder Background */}
-              <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-beige-200 to-beige-300 opacity-50">
-                <div className="bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-xl border border-white/50 text-center z-10">
-                  <MapPin className="w-8 h-8 text-saffron mx-auto mb-2 animate-bounce" />
-                  <p className="font-semibold text-charcoal">
-                    Find us on Google Maps
-                  </p>
-                  <p className="text-sm text-charcoal-light mt-1">
-                    Click to interact
-                  </p>
-                </div>
-                {/* Decorative Pattern */}
+          <div className="bg-white p-6 rounded-2xl shadow-lg border border-beige-200">
+            <div className="mb-6">
+              <h2 className="text-2xl font-serif font-bold text-charcoal">
+                Find Our BACE Hostels
+              </h2>
+              <p className="text-charcoal-light mt-1">
+                Explore all our centers across cities on Google Maps.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+              {baceLocations.map((location) => (
                 <div
-                  className="absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 2px 2px, #3D405B 1px, transparent 0)",
-                    backgroundSize: "24px 24px",
-                  }}
-                ></div>
-              </div>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d530.2652891814822!2d77.4840219562436!3d23.253475783042873!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c41c2e5f48aa9%3A0x7e986d1867287184!2sISKCON%20Hostel%20BACE%20BHOPAL!5e0!3m2!1sen!2sin!4v1770644931707!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0, opacity: 0.8 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="grayscale hover:grayscale-0 transition-all duration-700"
-              ></iframe>
+                  key={location.name}
+                  className="bg-beige-soft rounded-xl overflow-hidden border border-beige-200"
+                >
+                  <div className="p-4 border-b border-beige-200 bg-white">
+                    <h3 className="font-semibold text-charcoal">{location.name}</h3>
+                    <p className="text-sm text-charcoal-light">{location.city}</p>
+                  </div>
+                  <iframe
+                    src={location.mapSrc}
+                    title={`Google Map for ${location.name}`}
+                    width="100%"
+                    height="280"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    className="w-full"
+                  ></iframe>
+                </div>
+              ))}
             </div>
           </div>
         </Container>

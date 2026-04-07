@@ -153,8 +153,8 @@ export default function IGFPage() {
               Harmonizing Life
             </h2>
             <p className="text-lg text-gray-500">
-              We empower you to excel in every role—student, professional,
-              daughter, and leader—while staying rooted in devotion.
+              We empower you to excel in every role-student, professional,
+              daughter, and leader-while staying rooted in devotion.
             </p>
           </div>
 

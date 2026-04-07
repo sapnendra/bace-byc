@@ -102,7 +102,7 @@ export default function ParentsPage() {
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Your child's college years are formative. We provide the mentorship,
             structure, and values that ensure they don't just survive away from
-            home—they thrive.
+            home-they thrive.
           </p>
         </Container>
       </Section>

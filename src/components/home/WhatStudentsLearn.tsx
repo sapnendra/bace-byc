@@ -67,7 +67,7 @@ export default function WhatStudentsLearn() {
             at BACE
           </h2>
           <p className="text-xl text-charcoal-light max-w-3xl mx-auto leading-relaxed">
-            BACE offers more than information — it provides education for life.
+            BACE offers more than information - it provides education for life.
             Students learn to understand themselves, manage their minds, and
             live with clarity.
           </p>
@@ -160,7 +160,7 @@ export default function WhatStudentsLearn() {
                 The Outcome
               </h3>
               <p className="text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-                Students don't just gain knowledge — they gain{" "}
+                Students don't just gain knowledge - they gain{" "}
                 <strong className="text-saffron">clarity of thought</strong>,{" "}
                 <strong className="text-saffron">emotional strength</strong>,{" "}
                 <strong className="text-saffron">moral grounding</strong>,{" "}

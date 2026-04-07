@@ -67,10 +67,15 @@ export default function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showSolidBg ? "bg-white shadow-md py-3" : "bg-transparent py-5"
+        showSolidBg ? "py-3" : "py-5"
       }`}
     >
       <Container>
+        <div
+          className={`transition-all duration-300 ${
+            showSolidBg ? "bg-white shadow-md rounded-2xl px-4 sm:px-5 lg:px-6" : "bg-transparent"
+          }`}
+        >
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link
@@ -303,6 +308,7 @@ export default function Header() {
             </nav>
           </div>
         )}
+        </div>
       </Container>
     </header>
   );

@@ -52,7 +52,7 @@ export default function Hero() {
 
       {/* Main Container - Slightly wider than standard */}
       <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 sm:px-12 lg:px-16 max-w-[1540px] mx-auto">
-        <div className="grid lg:grid-cols-12 lg:gap-16 items-center w-full">
+        <div className="grid lg:grid-cols-12 lg:gap-10 items-center w-full">
           {/* Left Column: Text & CTA (7 Columns) */}
           <div className="lg:col-span-7 flex flex-col justify-center lg:gap-8 text-center lg:text-left py-10">
             {/* Badge */}
@@ -141,7 +141,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Animated Stats Card + Compact Features (5 Columns) */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-center gap-6 pb-8 md:pb-0 lg:items-end">
+          <div className="lg:col-span-5 relative flex flex-col items-center justify-center gap-6 pb-8 md:pb-0 lg:items-start">
             {/* Main Stats Card - Glassmorphism Refined */}
             <motion.div
               initial={{ opacity: 0, y: 0 }}

@@ -30,7 +30,7 @@ export default function WhyBACEMatters() {
     {
       title: "Bridges Ancient Wisdom with Modern Life",
       description:
-        "Ancient philosophy explained using logic, examples, and discussions—intellectually satisfying for curious minds.",
+        "Ancient philosophy explained using logic, examples, and discussions-intellectually satisfying for curious minds.",
       icon: BookOpen,
       size: "medium",
     },

@@ -153,7 +153,7 @@ export default async function AboutPage() {
               </h2>
               <p className="text-lg text-charcoal-light leading-relaxed">
                 To create a generation of youth who are academically successful,
-                emotionally stable, ethically grounded, and spiritually aware —
+                emotionally stable, ethically grounded, and spiritually aware -
                 young people who lead with character and contribute to society
                 with compassion.
               </p>

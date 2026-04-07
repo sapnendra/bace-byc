@@ -115,10 +115,10 @@ export default function VedicHostelDifference() {
                 Direction, not discipline
               </h3>
               <p className="text-xl text-charcoal-light leading-relaxed max-w-3xl mx-auto">
-                Students don't need stricter rules — they need better direction.
+                Students don't need stricter rules - they need better direction.
                 BACE provides an environment where students{" "}
                 <strong className="text-saffron">naturally choose</strong>{" "}
-                discipline, clarity, and growth — not because they are forced,
+                discipline, clarity, and growth - not because they are forced,
                 but because they understand why it matters.
               </p>
             </div>
