@@ -76,16 +76,12 @@ export default function Header() {
             showSolidBg ? "bg-white shadow-md rounded-2xl px-4 sm:px-5 lg:px-6" : "bg-transparent"
           }`}
         >
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-3">
           {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center space-x-2"
-            aria-label="BACE Home"
-          >
+          <Link href="/" className="flex items-center" aria-label="BACE Home">
             {/* SVG Logo */}
             <div
-              className={`relative w-48 h-16 transition-colors duration-300 -ml-10 md:-ml-0 ${
+              className={`relative w-28 h-12 sm:w-36 sm:h-14 lg:w-44 lg:h-16 transition-colors duration-300 ${
                 showSolidBg ? "text-saffron" : "text-charcoal"
               }`}
             >

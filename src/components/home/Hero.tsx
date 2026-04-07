@@ -23,7 +23,7 @@ import { useEffect, useRef } from "react";
 export default function Hero() {
 
   return (
-    <section className="relative min-h-screen lg:h-screen flex items-center justify-center overflow-hidden bg-[#FDFBF7] pt-20 lg:pt-0">
+    <section className="relative min-h-screen xl:h-screen flex items-center justify-center overflow-hidden bg-[#FDFBF7] pt-20 xl:pt-0">
       {/* Background Pattern - Subtle Mandala/Geometric */}
       <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none mix-blend-multiply">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
@@ -50,17 +50,16 @@ export default function Hero() {
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-saffron/10 rounded-full blur-[150px] -translate-y-1/2 translate-x-1/3 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gold/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/3 pointer-events-none" />
 
-      {/* Main Container - Slightly wider than standard */}
-      <div className="relative z-10 w-full h-full flex flex-col justify-center px-6 sm:px-12 lg:px-16 max-w-[1540px] mx-auto">
-        <div className="grid lg:grid-cols-12 lg:gap-10 items-center w-full">
+      <Container className="relative z-10 w-full h-full flex flex-col justify-center">
+        <div className="grid xl:grid-cols-12 gap-8 xl:gap-10 items-center w-full">
           {/* Left Column: Text & CTA (7 Columns) */}
-          <div className="lg:col-span-7 flex flex-col justify-center lg:gap-8 text-center lg:text-left py-10">
+          <div className="xl:col-span-7 flex flex-col justify-center xl:gap-8 text-center xl:text-left py-10">
             {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-saffron/20 shadow-sm mb-8 mx-auto lg:mx-0 w-fit backdrop-blur-sm"
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-saffron/20 shadow-sm mb-8 mx-auto xl:mx-0 w-fit backdrop-blur-sm"
             >
               <Sparkles className="w-3.5 h-3.5 text-saffron" />
               <span className="text-xs font-semibold text-charcoal/80 tracking-widest uppercase">
@@ -73,7 +72,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-              className="font-serif font-medium text-charcoal mb-8 leading-[1.05] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.5rem]"
+              className="font-serif font-medium text-charcoal mb-6 md:mb-8 leading-[1.05] tracking-tight text-5xl sm:text-6xl md:text-7xl lg:text-[4.6rem] xl:text-[5.4rem]"
             >
               Where{" "}
               <span className="text-saffron italic relative">
@@ -101,7 +100,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg md:text-xl text-charcoal-light/90 mb-10 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light"
+              className="text-base sm:text-lg md:text-xl text-charcoal-light/90 mb-8 md:mb-10 max-w-2xl mx-auto xl:mx-0 leading-relaxed font-light"
             >
               BACE provides a sanctuary for holistic growth, merging academic
               excellence with the timeless wisdom of Vedic values to forge
@@ -113,7 +112,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4 justify-center xl:justify-start"
             >
               <Button
                 variant="primary"
@@ -141,13 +140,13 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Animated Stats Card + Compact Features (5 Columns) */}
-          <div className="lg:col-span-5 relative flex flex-col items-center justify-center gap-6 pb-8 md:pb-0 lg:items-start">
+          <div className="xl:col-span-5 relative flex flex-col items-center justify-center gap-6 pb-8 md:pb-0 xl:items-start">
             {/* Main Stats Card - Glassmorphism Refined */}
             <motion.div
               initial={{ opacity: 0, y: 0 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="relative hidden lg:block bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-[2rem] p-8 w-full max-w-sm hover:scale-[1.02] transition-transform duration-500 z-10"
+              className="relative hidden xl:block bg-white/60 backdrop-blur-xl border border-white/50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] rounded-[2rem] p-8 w-full max-w-sm hover:scale-[1.02] transition-transform duration-500 z-10"
             >
               <div className="absolute -top-10 -right-10 w-32 h-32 bg-saffron/10 rounded-full blur-2xl animate-pulse-slow pointer-events-none" />
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
@@ -223,7 +222,7 @@ export default function Hero() {
             </motion.div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
