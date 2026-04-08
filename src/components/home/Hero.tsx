@@ -40,7 +40,7 @@ export default function Hero() {
             >
               <Sparkles className="h-3.5 w-3.5 text-saffron" />
               <span className="text-xs font-semibold tracking-[0.2em] text-charcoal/80 uppercase">
-                Est. 2009 • Vedic Wisdom
+                Since 2012 • Bhopal, India
               </span>
             </motion.div>
 

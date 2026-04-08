@@ -12,6 +12,7 @@ import type { GalleryItem } from "@/types/gallery";
 const categoryLabelMap: Record<string, string> = {
   "daily-life": "Daily Life",
   academics: "Academics",
+  trips: "Trips",
   events: "Events",
   recreation: "Recreation",
   learning: "Learning",
@@ -20,6 +21,7 @@ const categoryLabelMap: Record<string, string> = {
 const categoryIcons: Record<string, ReactNode> = {
   "daily-life": <Camera className="w-12 h-12 text-white/80" />,
   academics: <Camera className="w-12 h-12 text-white/80" />,
+  trips: <Camera className="w-12 h-12 text-white/80" />,
   events: <Camera className="w-12 h-12 text-white/80" />,
   recreation: <Camera className="w-12 h-12 text-white/80" />,
   learning: <Camera className="w-12 h-12 text-white/80" />,

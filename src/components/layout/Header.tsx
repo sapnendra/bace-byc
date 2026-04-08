@@ -33,15 +33,20 @@ export default function Header() {
         { href: "/iskcon-youth-forum", label: "ISKCON Youth Forum" },
         { href: "/iskcon-girls-forum", label: "ISKCON Girls Forum" },
         { href: "/iskcon-kids-forum", label: "ISKCON Kids Forum" },
+        { href: "/events-courses", label: "Events & Courses" },
         { href: "/seminars", label: "Lectures & Seminars" },
       ],
     },
     {
-      label: "Campus Life",
+      label: "Bace Life",
       dropdown: [
+        { href: "/jp-bace", label: "Jagannath Puri BACE" },
+        { href: "/vrindavan-bace", label: "Vrindavan BACE" },
+        { href: "/bhaktivedanta-bace", label: "Bhaktivedanta BACE" },
+        { href: "/barsana-bace", label: "Barsana BACE" },
+        { href: "/saket-dham-bace", label: "Saket Dham BACE" },
+        { href: "/bace-life", label: "Bace Life" },
         { href: "/our-alumani", label: "Our Alumni" },
-        { href: "/hostel-life", label: "Hostel Life" },
-        { href: "/events-courses", label: "Events & Courses" },
         { href: "/parents-view", label: "What Parents Says" },
       ],
     },
@@ -120,7 +125,7 @@ export default function Header() {
                   fontSize="72"
                   fill="currentColor"
                 >
-                  BACE BYC
+                  IYF BHOPAL
                 </text>
 
                 {/* Bottom Double Line */}

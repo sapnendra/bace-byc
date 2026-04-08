@@ -1,6 +1,7 @@
 export const GALLERY_CATEGORIES = [
   "daily-life",
   "academics",
+  "trips",
   "events",
   "recreation",
   "learning",

@@ -79,19 +79,6 @@ export const galleryItems = [
   },
   {
     id: 6,
-    title: "Cricket Tournament",
-    category: "recreation",
-    icon: <Dumbbell className="w-12 h-12 text-white/80" />,
-    gradient: "from-teal-600 to-teal-800",
-    size: "tall",
-    images: [
-      "https://images.unsplash.com/photo-1531415074984-618821f11b63?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1587329310686-9475d533d24c?q=80&w=1200&auto=format&fit=crop",
-      "https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?q=80&w=1200&auto=format&fit=crop",
-    ],
-  },
-  {
-    id: 7,
     title: "Guest Lecture",
     category: "learning",
     icon: <GraduationCap className="w-12 h-12 text-white/80" />,
@@ -104,7 +91,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 8,
+    id: 7,
     title: "Janmashtami",
     category: "events",
     icon: <Sparkles className="w-12 h-12 text-white/80" />,
@@ -117,7 +104,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 9,
+    id: 8,
     title: "Community Service",
     category: "events",
     icon: <Users className="w-12 h-12 text-white/80" />,
@@ -130,7 +117,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 10,
+    id: 9,
     title: "Evening Aarti",
     category: "daily-life",
     icon: <Sparkles className="w-12 h-12 text-white/80" />,
@@ -143,7 +130,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 11,
+    id: 10,
     title: "Library Time",
     category: "academics",
     icon: <BookOpen className="w-12 h-12 text-white/80" />,
@@ -156,7 +143,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 12,
+    id: 11,
     title: "Yoga Session",
     category: "recreation",
     icon: <Dumbbell className="w-12 h-12 text-white/80" />,
@@ -169,7 +156,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 13,
+    id: 12,
     title: "Cooking Class",
     category: "learning",
     icon: <Utensils className="w-12 h-12 text-white/80" />,
@@ -182,7 +169,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 14,
+    id: 13,
     title: "Drama Performance",
     category: "events",
     icon: <Mic2 className="w-12 h-12 text-white/80" />,
@@ -195,7 +182,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 15,
+    id: 14,
     title: "Football Match",
     category: "recreation",
     icon: <Dumbbell className="w-12 h-12 text-white/80" />,
@@ -208,7 +195,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 16,
+    id: 15,
     title: "Gita Study",
     category: "learning",
     icon: <BookOpen className="w-12 h-12 text-white/80" />,
@@ -221,7 +208,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 17,
+    id: 16,
     title: "Mayapur Visit",
     category: "events",
     icon: <Tent className="w-12 h-12 text-white/80" />,
@@ -234,7 +221,7 @@ export const galleryItems = [
     ],
   },
   {
-    id: 18,
+    id: 17,
     title: "Leadership Camp",
     category: "learning",
     icon: <Users className="w-12 h-12 text-white/80" />,

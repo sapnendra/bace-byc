@@ -95,4 +95,23 @@ const GallerySchema = new Schema<IGallery>(
 
 GallerySchema.index({ isPublished: 1, sortOrder: 1, createdAt: -1 });
 
-export default mongoose.models.Gallery || mongoose.model<IGallery>("Gallery", GallerySchema);
+const existingModel = mongoose.models.Gallery as mongoose.Model<IGallery> | undefined;
+
+if (existingModel) {
+  const categoryPath = existingModel.schema.path("category") as any;
+  const sizePath = existingModel.schema.path("size") as any;
+
+  if (categoryPath?.options) {
+    categoryPath.options.enum = [...GALLERY_CATEGORIES];
+    categoryPath.enumValues = [...GALLERY_CATEGORIES];
+  }
+
+  if (sizePath?.options) {
+    sizePath.options.enum = [...GALLERY_SIZES];
+    sizePath.enumValues = [...GALLERY_SIZES];
+  }
+}
+
+const GalleryModel = existingModel || mongoose.model<IGallery>("Gallery", GallerySchema);
+
+export default GalleryModel;

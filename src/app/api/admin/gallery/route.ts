@@ -91,7 +91,9 @@ export async function POST(request: NextRequest) {
 
     const rawPayload = {
       title: String(formData.get("title") || ""),
-      category: String(formData.get("category") || ""),
+      category: String(formData.get("category") || "")
+        .trim()
+        .toLowerCase(),
       gradient: String(formData.get("gradient") || ""),
       size: String(formData.get("size") || ""),
       isPublished: String(formData.get("isPublished") || "true") === "true",
@@ -167,6 +169,11 @@ export async function POST(request: NextRequest) {
         { success: false, message: "Validation failed" },
         { status: 400 },
       );
+    }
+
+    if (error && typeof error === "object" && "name" in error && error.name === "ValidationError") {
+      const message = error instanceof Error ? error.message : "Validation failed";
+      return NextResponse.json({ success: false, message }, { status: 400 });
     }
 
     if (isMongoAvailabilityError(error)) {
