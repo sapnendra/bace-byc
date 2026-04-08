@@ -10,6 +10,7 @@ export default function Footer() {
     { href: "/hostel-life", label: "Hostel Life" },
     { href: "/parents-view", label: "For Parents" },
     { href: "/gallery", label: "Gallery" },
+    { href: "/donation", label: "Donation" },
     { href: "/admissions", label: "Admissions" },
     { href: "/contact", label: "Contact Us" },
   ];

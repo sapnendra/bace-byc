@@ -1,5 +1,8 @@
 import { v2 as cloudinary } from "cloudinary";
 
+const CLOUDINARY_UPLOAD_TIMEOUT_MS = 25_000;
+const MAX_UPLOAD_ATTEMPTS = 3;
+
 // Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -18,24 +21,58 @@ export async function uploadImage(
   file: string,
   folder: string = "bace-alumni",
 ): Promise<{ url: string; publicId: string }> {
-  try {
-    const result = await cloudinary.uploader.upload(file, {
-      folder,
-      transformation: [
-        { width: 1000, height: 1000, crop: "limit" },
-        { quality: "auto:good" },
-        { fetch_format: "auto" },
-      ],
-    });
+  let lastError: unknown;
 
-    return {
-      url: result.secure_url,
-      publicId: result.public_id,
-    };
-  } catch (error) {
-    console.error("Cloudinary upload error:", error);
-    throw new Error("Failed to upload image to Cloudinary");
+  for (let attempt = 1; attempt <= MAX_UPLOAD_ATTEMPTS; attempt += 1) {
+    try {
+      const result = await cloudinary.uploader.upload(file, {
+        folder,
+        timeout: CLOUDINARY_UPLOAD_TIMEOUT_MS,
+        transformation: [
+          { width: 1000, height: 1000, crop: "limit" },
+          { quality: "auto:good" },
+          { fetch_format: "auto" },
+        ],
+      });
+
+      return {
+        url: result.secure_url,
+        publicId: result.public_id,
+      };
+    } catch (error: unknown) {
+      lastError = error;
+      const cloudinaryError = error as {
+        error?: { http_code?: number; name?: string };
+        http_code?: number;
+        name?: string;
+        code?: string;
+      };
+
+      const httpCode = cloudinaryError?.error?.http_code ?? cloudinaryError?.http_code;
+      const errorName = cloudinaryError?.error?.name ?? cloudinaryError?.name;
+      const errorCode = cloudinaryError?.code;
+
+      const isRetryable =
+        httpCode === 499 ||
+        httpCode === 500 ||
+        httpCode === 502 ||
+        httpCode === 503 ||
+        httpCode === 504 ||
+        errorName === "TimeoutError" ||
+        errorCode === "ETIMEDOUT" ||
+        errorCode === "ECONNRESET";
+
+      if (!isRetryable || attempt === MAX_UPLOAD_ATTEMPTS) {
+        break;
+      }
+
+      const backoffMs = 500 * attempt;
+      await new Promise((resolve) => setTimeout(resolve, backoffMs));
+    }
   }
+
+  console.error("Cloudinary upload error:", lastError);
+  throw new Error("Image upload timed out. Please try again.");
 }
 
 /**

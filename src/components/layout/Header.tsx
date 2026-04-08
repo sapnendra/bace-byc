@@ -28,7 +28,7 @@ export default function Header() {
     { href: "/", label: "Home" },
     { href: "/gallery", label: "Gallery" },
     {
-      label: "Programs",
+      label: "Category",
       dropdown: [
         { href: "/iskcon-youth-forum", label: "ISKCON Youth Forum" },
         { href: "/iskcon-girls-forum", label: "ISKCON Girls Forum" },
@@ -54,6 +54,7 @@ export default function Header() {
       ],
     },
     { href: "/contact", label: "Contact" },
+    { href: "/donation", label: "Donation" },
   ];
 
   // On non-homepage, always show solid background
@@ -73,7 +74,7 @@ export default function Header() {
       <Container>
         <div
           className={`transition-all duration-300 ${
-            showSolidBg ? "bg-white shadow-md rounded-2xl px-4 sm:px-5 lg:px-6" : "bg-transparent"
+            showSolidBg ? "bg-white shadow-md rounded-2xl" : "bg-transparent"
           }`}
         >
         <div className="flex justify-between items-center gap-3">
@@ -150,6 +151,7 @@ export default function Header() {
               const isActive = link.dropdown
                 ? link.dropdown.some((item) => item.href === pathname)
                 : pathname === link.href;
+              const isDonationLink = link.href === "/donation";
 
               return link.dropdown ? (
                 <div key={link.label} className="relative group">
@@ -195,6 +197,8 @@ export default function Header() {
                       ? showSolidBg
                         ? "bg-saffron/10 text-saffron border-saffron/20"
                         : "bg-charcoal/10 text-charcoal border-charcoal/20 backdrop-blur-sm"
+                      : isDonationLink
+                        ? "bg-gold/10 text-charcoal border-gold/20 hover:bg-gold/20"
                       : showSolidBg
                         ? "border-transparent text-charcoal hover:bg-saffron/5 hover:text-saffron"
                         : "border-transparent text-charcoal hover:bg-charcoal/10 hover:text-charcoal"
@@ -207,7 +211,7 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden lg:block">
+          <div className="hidden lg:block lg:pr-10">
             <Link href="/admissions">
               <Button variant="primary" size="sm">
                 Student Registration
@@ -241,6 +245,7 @@ export default function Header() {
                 const isActive = link.dropdown
                   ? link.dropdown.some((item) => item.href === pathname)
                   : pathname === link.href;
+                const isDonationLink = link.href === "/donation";
 
                 return link.dropdown ? (
                   <div key={link.label}>
@@ -287,6 +292,8 @@ export default function Header() {
                     className={`block font-medium py-2 transition-colors ${
                       isActive
                         ? "text-saffron"
+                        : isDonationLink
+                          ? "text-gold"
                         : "text-charcoal hover:text-saffron"
                     }`}
                   >

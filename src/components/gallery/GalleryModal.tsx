@@ -2,12 +2,12 @@
 
 import { useEffect, useCallback, useState } from "react";
 import { X, ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
-import { galleryItems } from "@/data/gallery";
+import type { GalleryItem } from "@/types/gallery";
 
 interface GalleryModalProps {
   isOpen: boolean;
   onClose: () => void;
-  items: typeof galleryItems;
+  items: GalleryItem[];
   initialIndex: number;
 }
 
@@ -34,7 +34,9 @@ export default function GalleryModal({
   // User request: "view all images related to that"
   // So the slider should primarily navigate through the *current item's* images.
 
-  const currentImages = currentItem?.images || [];
+  const currentImages = (currentItem?.images || []).map((image) =>
+    typeof image === "string" ? image : image.url,
+  );
   const hasImages = currentImages.length > 0;
 
   // Navigation handlers for images within the current item

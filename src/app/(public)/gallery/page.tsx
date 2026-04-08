@@ -1,22 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
 import { Camera, Loader2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { galleryItems } from "@/data/gallery";
 import GalleryModal from "@/components/gallery/GalleryModal";
+import type { GalleryItem } from "@/types/gallery";
 
-const categories = [
-  { value: "all", label: "All Moments" },
-  { value: "daily-life", label: "Daily Life" },
-  { value: "academics", label: "Academics" },
-  { value: "events", label: "Events" },
-  { value: "recreation", label: "Recreation" },
-];
+const categoryLabelMap: Record<string, string> = {
+  "daily-life": "Daily Life",
+  academics: "Academics",
+  events: "Events",
+  recreation: "Recreation",
+  learning: "Learning",
+};
+
+const categoryIcons: Record<string, ReactNode> = {
+  "daily-life": <Camera className="w-12 h-12 text-white/80" />,
+  academics: <Camera className="w-12 h-12 text-white/80" />,
+  events: <Camera className="w-12 h-12 text-white/80" />,
+  recreation: <Camera className="w-12 h-12 text-white/80" />,
+  learning: <Camera className="w-12 h-12 text-white/80" />,
+};
+
+type ApiGalleryResponse = {
+  success: boolean;
+  data?: GalleryItem[];
+};
+
+function toDynamicFallbackItems(): GalleryItem[] {
+  return galleryItems.map((item) => ({
+    id: item.id,
+    title: item.title,
+    category: item.category,
+    gradient: item.gradient,
+    size: item.size === "tall" ? "tall" : "short",
+    images: item.images,
+    isPublished: true,
+    sortOrder: 0,
+  }));
+}
 
 export default function GalleryPage() {
+  const [allItems, setAllItems] = useState<GalleryItem[]>([]);
+  const [isPageLoading, setIsPageLoading] = useState(true);
   const [activeCategory, setActiveCategory] = useState("all");
   const [visibleCount, setVisibleCount] = useState(6);
   const [isLoading, setIsLoading] = useState(false);
@@ -25,11 +54,63 @@ export default function GalleryPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
+  useEffect(() => {
+    let active = true;
+
+    async function loadGallery() {
+      try {
+        const response = await fetch("/api/gallery", {
+          method: "GET",
+          cache: "no-store",
+        });
+        const result = (await response.json()) as ApiGalleryResponse;
+
+        if (!active) return;
+
+        if (response.ok && result.success && Array.isArray(result.data)) {
+          setAllItems(result.data);
+        } else {
+          setAllItems(toDynamicFallbackItems());
+        }
+      } catch {
+        if (active) {
+          setAllItems(toDynamicFallbackItems());
+        }
+      } finally {
+        if (active) {
+          setIsPageLoading(false);
+        }
+      }
+    }
+
+    void loadGallery();
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const categories = useMemo(() => {
+    const dynamicCategories = Array.from(new Set(allItems.map((item) => item.category))).filter(Boolean);
+    return [
+      { value: "all", label: "All Moments" },
+      ...dynamicCategories.map((value) => ({
+        value,
+        label:
+          categoryLabelMap[value] ||
+          value
+            .split("-")
+            .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+            .join(" "),
+      })),
+    ];
+  }, [allItems]);
+
   // Filter items based on category
   const filteredItems =
     activeCategory === "all"
-      ? galleryItems
-      : galleryItems.filter((item) => item.category === activeCategory);
+      ? allItems
+      : allItems.filter((item) => item.category === activeCategory);
 
   // Get visible items
   const visibleItems = filteredItems.slice(0, visibleCount);
@@ -51,9 +132,13 @@ export default function GalleryPage() {
     setVisibleCount(6);
   };
 
-  const openModal = (item: (typeof galleryItems)[0]) => {
-    // Find the index of the item in the global galleryItems array
-    const index = galleryItems.findIndex((g) => g.id === item.id);
+  const openModal = (item: GalleryItem) => {
+    // Find the index of the item in the complete loaded dataset
+    const index = allItems.findIndex((g) => {
+      const candidateId = g._id || String(g.id || "");
+      const itemId = item._id || String(item.id || "");
+      return candidateId === itemId;
+    });
     if (index !== -1) {
       setSelectedItemIndex(index);
       setIsModalOpen(true);
@@ -86,6 +171,12 @@ export default function GalleryPage() {
       <Section className="py-24 relative">
         <div className="absolute top-0 right-0 w-full h-1/2 bg-gradient-to-b from-charcoal to-beige-soft -z-10 opacity-10" />
         <Container>
+          {isPageLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="h-10 w-10 animate-spin text-saffron" />
+            </div>
+          ) : (
+            <>
           {/* Category Filter */}
           <div className="flex flex-wrap justify-center gap-3 mb-16">
             {categories.map((cat) => (
@@ -107,7 +198,7 @@ export default function GalleryPage() {
           <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
             {visibleItems.map((item, index) => (
               <div
-                key={item.id}
+                key={item._id || item.id || index}
                 className="break-inside-avoid group cursor-pointer"
                 onClick={() => openModal(item)}
               >
@@ -120,7 +211,7 @@ export default function GalleryPage() {
                   >
                     {/* Icon Circle */}
                     <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center mb-6 border border-white/20 shadow-inner group-hover:scale-110 transition-transform duration-500">
-                      {item.icon}
+                      {categoryIcons[item.category] || <Camera className="w-12 h-12 text-white/80" />}
                     </div>
 
                     <h3 className="text-2xl font-bold text-white mb-2 font-serif tracking-wide opacity-90 transition-opacity">
@@ -175,6 +266,8 @@ export default function GalleryPage() {
               media team.
             </p>
           </div>
+            </>
+          )}
         </Container>
       </Section>
 
@@ -182,7 +275,7 @@ export default function GalleryPage() {
       <GalleryModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        items={galleryItems}
+        items={allItems}
         initialIndex={selectedItemIndex}
       />
     </main>

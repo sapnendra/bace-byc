@@ -204,6 +204,9 @@ Required environment variables (see `.env.local.example`):
 
 - `MONGODB_URI` - MongoDB connection string
 - `NEXT_PUBLIC_APP_URL` - Application URL
+- `CLOUDINARY_CLOUD_NAME` - Cloudinary cloud name for image uploads
+- `CLOUDINARY_API_KEY` - Cloudinary API key
+- `CLOUDINARY_API_SECRET` - Cloudinary API secret
 
 ## 🌐 Deployment
 
