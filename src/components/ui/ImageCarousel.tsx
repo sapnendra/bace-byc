@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -9,6 +10,7 @@ interface ImageCarouselProps {
   autoPlay?: boolean;
   interval?: number;
   showDots?: boolean;
+  imageAltPrefix?: string;
   className?: string;
 }
 
@@ -17,6 +19,7 @@ export default function ImageCarousel({
   autoPlay = true,
   interval = 3000,
   showDots = true,
+  imageAltPrefix = "Students at IYF Bhopal BACE",
   className = "",
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -63,16 +66,23 @@ export default function ImageCarousel({
       {/* Images */}
       <div className="relative w-full h-full">
         <AnimatePresence mode="wait">
-          <motion.img
+          <motion.div
             key={currentIndex}
-            src={images[currentIndex]}
-            alt={`Slide ${currentIndex + 1}`}
-            className="w-full h-full object-cover"
+            className="relative w-full h-full"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-          />
+          >
+            <Image
+              src={images[currentIndex]}
+              alt={`${imageAltPrefix} - image ${currentIndex + 1}`}
+              fill
+              className="object-cover"
+              sizes="(min-width: 1024px) 33vw, 100vw"
+              priority={currentIndex === 0}
+            />
+          </motion.div>
         </AnimatePresence>
       </div>
 

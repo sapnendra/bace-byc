@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ChevronRight,
@@ -465,11 +466,15 @@ export default function AlumniRegistrationForm() {
                     <div className="grid grid-cols-3 gap-4 mt-4">
                       {imagePreviews.map((preview, index) => (
                         <div key={index} className="relative group">
-                          <img
-                            src={preview}
-                            alt={`Preview ${index + 1}`}
-                            className="w-full aspect-square object-cover rounded-lg"
-                          />
+                          <div className="relative w-full aspect-square">
+                            <Image
+                              src={preview}
+                              alt={`Alumni registration preview image ${index + 1}`}
+                              fill
+                              unoptimized
+                              className="object-cover rounded-lg"
+                            />
+                          </div>
                           <button
                             type="button"
                             onClick={() => removeImage(index)}

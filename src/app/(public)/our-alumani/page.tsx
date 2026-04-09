@@ -122,8 +122,8 @@ export default function AlumniPage() {
     <main className="pt-20 bg-beige-soft min-h-screen">
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-charcoal via-charcoal-light to-charcoal text-white py-20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-saffron/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-forest/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/3" />
+        <div className="absolute top-0 right-0 h-80 w-80 -translate-y-1/2 translate-x-1/3 rounded-full bg-saffron/10 blur-3xl sm:h-96 sm:w-96" />
+        <div className="absolute bottom-0 left-0 h-72 w-72 -translate-x-1/3 translate-y-1/2 rounded-full bg-forest/10 blur-3xl sm:h-96 sm:w-96" />
 
         <Container className="relative z-10">
           <motion.div

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "../ui/Container";
+import NapAddress from "@/components/seo/NapAddress";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -13,6 +14,14 @@ export default function Footer() {
     { href: "/donation", label: "Donation" },
     { href: "/admissions", label: "Admissions" },
     { href: "/contact", label: "Contact Us" },
+  ];
+
+  const baceLocationLinks = [
+    { href: "/jp-bace", label: "Jagannath Puri BACE - Anand Nagar, Bhopal" },
+    { href: "/vrindavan-bace", label: "Vrindavan BACE - MANIT Chauraha, Bhopal" },
+    { href: "/bhaktivedanta-bace", label: "Bhaktivedanta BACE - MP Nagar, Bhopal" },
+    { href: "/barsana-bace", label: "Barsana BACE - Kokta Bypass, Bhopal" },
+    { href: "/saket-dham-bace", label: "Saket Dham BACE - Saket Nagar, Bhopal" },
   ];
 
   return (
@@ -52,6 +61,9 @@ export default function Footer() {
             <p className="text-sm text-gray-300 mb-2">
               Have questions? We're here to help.
             </p>
+            <p className="text-sm text-gray-300 mb-3">
+              IYF Bhopal, Prabhupada Marg, Near Mansarobar College, Kolar, Bhopal, Madhya Pradesh | +91 99931 01901
+            </p>
             <Link
               href="/contact"
               className="inline-block text-sm text-saffron hover:text-saffron-light transition-colors"
@@ -59,6 +71,35 @@ export default function Footer() {
               Contact Us →
             </Link>
           </div>
+        </div>
+
+        <div className="pb-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h4 className="text-lg font-semibold mb-4">BACE Locations</h4>
+            <ul className="space-y-2">
+              {baceLocationLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-gray-300 hover:text-white transition-colors"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/admissions" className="text-sm text-saffron hover:text-saffron-light transition-colors">
+                  BACE Admissions 2025
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Contact IYF Bhopal
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <NapAddress />
         </div>
 
         {/* Bottom Bar */}

@@ -1,6 +1,6 @@
-import { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
+import NapAddress from "@/components/seo/NapAddress";
 import {
   Phone,
   Mail,
@@ -11,11 +11,6 @@ import {
   Youtube,
   Send,
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Contact Us - BACE",
-  description: "Get in touch with BACE for inquiries, visits, or support.",
-};
 
 export default function ContactPage() {
   const baceLocations = [
@@ -60,13 +55,13 @@ export default function ContactPage() {
     <main className="pt-20 bg-beige-soft">
       {/* Hero Section */}
       <Section className="bg-charcoal text-white relative overflow-hidden py-24">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-saffron/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+        <div className="absolute top-0 right-0 h-72 w-72 -translate-y-1/2 translate-x-1/2 rounded-full bg-saffron/10 blur-3xl sm:h-96 sm:w-96" />
         <Container className="relative z-10 text-center">
           <span className="text-saffron font-bold tracking-widest uppercase text-sm mb-4 block">
             Get in Touch
           </span>
           <h1 className="text-5xl md:text-6xl font-serif font-bold mb-6">
-            We'd Love to Hear from You
+            Contact IYF Bhopal - ISKCON BACE Hostel
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Whether you have questions about admissions, student life, or just
@@ -94,10 +89,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-200 mb-1">Phone</h3>
-                    <p className="text-gray-400 font-light">
-                      +91 [Phone Number]
-                    </p>
-                    <p className="text-gray-400 font-light">+91 [Alt Number]</p>
+                    <p className="text-gray-400 font-light">+91 99931 01901</p>
                   </div>
                 </div>
 
@@ -107,10 +99,8 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-200 mb-1">Email</h3>
-                    <p className="text-gray-400 font-light">info@bace.org</p>
-                    <p className="text-gray-400 font-light">
-                      admissions@bace.org
-                    </p>
+                    <p className="text-gray-400 font-light">iyfbhopal@gmail.com</p>
+                    <p className="text-gray-400 font-light">admissions@iyfbhopal.in</p>
                   </div>
                 </div>
 
@@ -123,9 +113,9 @@ export default function ContactPage() {
                       Location
                     </h3>
                     <p className="text-gray-400 font-light leading-relaxed">
-                      [BACE Hostel Address]
+                      Prabhupada Marg, Near Mansarobar College, Kolar
                       <br />
-                      [City, State - PIN]
+                      Bhopal, Madhya Pradesh - 462042
                       <br />
                       India
                     </p>
@@ -150,6 +140,10 @@ export default function ContactPage() {
 
               {/* Social Links */}
               <div className="mt-12 pt-8 border-t border-white/10">
+                <p className="text-sm text-gray-300 mb-4">
+                  Website: https://iyfbhopal.in
+                </p>
+                <NapAddress className="mb-6" />
                 <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-4">
                   Follow Us
                 </h3>

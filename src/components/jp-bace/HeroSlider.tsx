@@ -8,9 +8,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface HeroSliderProps {
   images: string[];
   autoSlideMs?: number;
+  imageAltLabel?: string;
 }
 
-export default function HeroSlider({ images, autoSlideMs = 4500 }: HeroSliderProps) {
+export default function HeroSlider({
+  images,
+  autoSlideMs = 4500,
+  imageAltLabel = "IYF Bhopal ISKCON BACE hostel gallery",
+}: HeroSliderProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
@@ -47,7 +52,7 @@ export default function HeroSlider({ images, autoSlideMs = 4500 }: HeroSliderPro
 
   return (
     <div className="relative mx-auto w-full max-w-xl">
-      <div className="relative h-[280px] sm:h-[360px] lg:h-[460px]">
+      <div className="relative h-72 sm:h-80 lg:h-96">
         {visibleImages
           .slice()
           .reverse()
@@ -72,7 +77,7 @@ export default function HeroSlider({ images, autoSlideMs = 4500 }: HeroSliderPro
               >
                 <Image
                   src={image}
-                  alt={`Jagannath Puri BACE gallery slide ${imageIndex + 1}`}
+                  alt={`${imageAltLabel} slide ${imageIndex + 1}`}
                   fill
                   loading={step === 0 ? "eager" : "lazy"}
                   priority={step === 0}

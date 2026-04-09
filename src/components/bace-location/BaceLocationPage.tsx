@@ -21,8 +21,14 @@ export const defaultHistoryContent = [
 interface BaceLocationPageProps {
   locationName: string;
   locationSlug: string;
+  heroHeading?: string;
   subtitle: string;
   description: string;
+  addressLine?: string;
+  locationNote?: string;
+  nearbyColleges?: string[];
+  howToReach?: string;
+  faqItems?: Array<{ question: string; answer: string }>;
   sliderImages: string[];
   contactPhone: string;
   contactEmail: string;
@@ -35,8 +41,30 @@ interface BaceLocationPageProps {
 export default function BaceLocationPage({
   locationName,
   locationSlug,
+  heroHeading,
   subtitle,
   description,
+  addressLine,
+  locationNote,
+  nearbyColleges = ["MANIT (NIT Bhopal)", "RGPV", "Barkatullah University"],
+  howToReach,
+  faqItems = [
+    {
+      question: "Is BACE hostel available for girls?",
+      answer:
+        "Please contact the admissions team for current availability and location-wise details for girls accommodations.",
+    },
+    {
+      question: "What is the fee structure?",
+      answer:
+        "Fee plans vary by location and facilities. Reach out to the admissions team for updated fee details.",
+    },
+    {
+      question: "Is satvik food provided?",
+      answer:
+        "Yes. BACE offers wholesome satvik meals as part of the value-based hostel lifestyle.",
+    },
+  ],
   sliderImages,
   contactPhone,
   contactEmail,
@@ -64,8 +92,8 @@ export default function BaceLocationPage({
               <rect width="100%" height="100%" fill={`url(#${locationSlug}-grid)`} />
             </svg>
           </div>
-          <div className="absolute -top-32 right-0 h-[30rem] w-[30rem] rounded-full bg-saffron/15 blur-3xl" />
-          <div className="absolute bottom-0 -left-20 h-[22rem] w-[22rem] rounded-full bg-gold/10 blur-3xl" />
+          <div className="absolute -top-24 right-0 h-72 w-72 rounded-full bg-saffron/15 blur-3xl sm:-top-28 sm:h-80 sm:w-80 lg:h-96 lg:w-96" />
+          <div className="absolute -left-16 bottom-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl sm:-left-20 sm:h-72 sm:w-72 lg:h-80 lg:w-80" />
         </div>
 
         <Container className="relative grid max-w-7xl items-center gap-12 px-6 lg:grid-cols-2">
@@ -78,11 +106,21 @@ export default function BaceLocationPage({
               {subtitle}
             </p>
             <h1 className="text-4xl font-serif font-bold leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-              {locationName} <span className="text-saffron italic">BACE</span>
+              {heroHeading ?? (
+                <>
+                  {locationName} <span className="text-saffron italic">BACE</span>
+                </>
+              )}
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-charcoal-light/90 sm:text-lg">
               {description}
             </p>
+            {addressLine ? (
+              <p className="mt-4 text-sm font-medium text-charcoal-light/90">{addressLine}</p>
+            ) : null}
+            {locationNote ? (
+              <p className="mt-2 text-sm text-charcoal-light/90">{locationNote}</p>
+            ) : null}
 
             <div className="mt-8 flex flex-wrap gap-4">
               <Link href="/admissions">
@@ -128,6 +166,57 @@ export default function BaceLocationPage({
             subheading="OBJECTIVES OF IYS."
             bulletPoints={objectives}
           />
+        </Container>
+      </section>
+
+      <section className="py-20 bg-white/70">
+        <Container className="max-w-7xl px-6">
+          <div className="grid gap-8 lg:grid-cols-2">
+            <div className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-serif font-bold text-charcoal">Nearby Colleges</h2>
+              <p className="mt-3 text-charcoal-light">
+                This BACE center is convenient for students from major Bhopal colleges.
+              </p>
+              <ul className="mt-5 space-y-2">
+                {nearbyColleges.map((college) => (
+                  <li key={college} className="text-charcoal-light">
+                    • {college}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-serif font-bold text-charcoal">Daily Schedule</h2>
+              <ul className="mt-4 space-y-2 text-charcoal-light">
+                <li>• 5:30 AM - Mangal Aarti and meditation</li>
+                <li>• 7:00 AM - Satvik breakfast and preparation</li>
+                <li>• Daytime - College and academic routine</li>
+                <li>• Evening - Study support and value sessions</li>
+                <li>• Night - Reflection and rest</li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-serif font-bold text-charcoal">How to Reach</h2>
+            <p className="mt-3 text-charcoal-light">
+              {howToReach ??
+                `The ${locationName} BACE center is easy to access from key points in Bhopal. Contact us for precise route guidance and landmark-based directions.`}
+            </p>
+          </div>
+
+          <div className="mt-8 rounded-2xl border border-black/10 bg-white p-8 shadow-sm">
+            <h2 className="text-2xl font-serif font-bold text-charcoal">Frequently Asked Questions</h2>
+            <div className="mt-5 space-y-5">
+              {faqItems.map((item) => (
+                <div key={item.question}>
+                  <h3 className="text-lg font-semibold text-charcoal">{item.question}</h3>
+                  <p className="mt-1 text-charcoal-light">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </section>
 

@@ -1,9 +1,9 @@
-"use client";
-
 import BaceLocationPage, {
   defaultHistoryContent,
   defaultMissionContent,
 } from "@/components/bace-location/BaceLocationPage";
+import BaceLocationSchema from "@/components/seo/BaceLocationSchema";
+import NapAddress from "@/components/seo/NapAddress";
 
 const sliderImages = [
   "https://images.unsplash.com/photo-1600411832986-5a4477b64a1c",
@@ -24,18 +24,45 @@ const objectives = [
 
 export default function VrindavanBacePage() {
   return (
-    <BaceLocationPage
-      locationName="Vrindavan"
-      locationSlug="vrindavan-bace"
-      subtitle="Spiritual Learning & Youth Transformation Hub"
-      description="Experience the divine atmosphere of Vrindavan through spiritual education, disciplined living, and a community focused on growth, devotion, and purpose."
-      sliderImages={sliderImages}
-      contactPhone="+91 9123456780"
-      contactEmail="vrindavan.bace@gmail.com"
-      contactSubheading="Reach Vrindavan BACE"
-      objectives={objectives}
-      missionContent={defaultMissionContent}
-      historyContent={defaultHistoryContent}
-    />
+    <>
+      <BaceLocationSchema
+        name="Vrindavan BACE - IYF Bhopal"
+        address="MANIT Chauraha, Bhopal, Madhya Pradesh"
+        neighborhood="MANIT Chauraha"
+        url="https://iyfbhopal.in/vrindavan-bace"
+        lat={23.2238}
+        lng={77.4052}
+        description="Vrindavan BACE near MANIT Chauraha offers value-based hostel living and academic-focused student support in Bhopal."
+      />
+      <BaceLocationPage
+        locationName="Vrindavan"
+        locationSlug="vrindavan-bace"
+        heroHeading="Vrindavan BACE - ISKCON Vedic Hostel, MANIT Chauraha, Bhopal"
+        subtitle="Spiritual Learning & Youth Transformation Hub"
+        description="Experience the divine atmosphere of Vrindavan through spiritual education, disciplined living, and a community focused on growth, devotion, and purpose."
+        addressLine="MANIT Chauraha, Bhopal, Madhya Pradesh"
+        locationNote="Ideal for students of MANIT (NIT Bhopal), RGPV, and nearby colleges."
+        nearbyColleges={["MANIT (NIT Bhopal)", "RGPV", "Barkatullah University"]}
+        howToReach="Situated near MANIT Chauraha, this location is well connected through major city roads and easy to reach from educational hubs in Bhopal."
+        sliderImages={sliderImages}
+        contactPhone="+91 9123456780"
+        contactEmail="vrindavan.bace@gmail.com"
+        contactSubheading="Reach Vrindavan BACE"
+        objectives={objectives}
+        missionContent={defaultMissionContent}
+        historyContent={defaultHistoryContent}
+      />
+      <div className="bg-charcoal px-6 py-8">
+        <div className="mx-auto max-w-6xl">
+          <NapAddress
+            name="Vrindavan BACE - IYF Bhopal"
+            street="MANIT Chauraha"
+            city="Bhopal"
+            state="Madhya Pradesh"
+            postalCode="462003"
+          />
+        </div>
+      </div>
+    </>
   );
 }

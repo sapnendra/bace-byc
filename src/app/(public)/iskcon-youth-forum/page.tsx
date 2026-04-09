@@ -190,6 +190,24 @@ export default function IYFPage() {
         </Container>
       </section>
 
+      <section className="py-14 bg-white border-y border-beige-200">
+        <Container>
+          <h2 className="text-3xl font-serif font-bold text-charcoal">IYF Bhopal and ISKCON Youth Forum Bhopal</h2>
+          <p className="mt-4 text-charcoal-light leading-relaxed max-w-4xl">
+            IYF Bhopal, also known as ISKCON Youth Forum Bhopal, supports students through BACE hostels
+            across key neighborhoods in the city. Explore each center to find the location that best fits your
+            college route and daily routine.
+          </p>
+          <ul className="mt-5 grid gap-2 sm:grid-cols-2 text-saffron">
+            <li><Link href="/jp-bace" className="hover:underline">Jagannath Puri BACE - Anand Nagar, Bhopal</Link></li>
+            <li><Link href="/vrindavan-bace" className="hover:underline">Vrindavan BACE - MANIT Chauraha, Bhopal</Link></li>
+            <li><Link href="/bhaktivedanta-bace" className="hover:underline">Bhaktivedanta BACE - MP Nagar, Bhopal</Link></li>
+            <li><Link href="/barsana-bace" className="hover:underline">Barsana BACE - Kokta Bypass, Bhopal</Link></li>
+            <li><Link href="/saket-dham-bace" className="hover:underline">Saket Dham BACE - Saket Nagar, Bhopal</Link></li>
+          </ul>
+        </Container>
+      </section>
+
       {/* --- Pillars Section --- */}
       <section className="py-24">
         <Container>

@@ -14,8 +14,8 @@ export default function EventsCoursesPage() {
     <main className="pt-20 bg-beige-soft">
       {/* Dynamic Hero Section */}
       <Section className="bg-charcoal text-white relative overflow-hidden py-24">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-saffron/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-forest/10 rounded-full blur-[80px] translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-0 right-0 h-72 w-72 -translate-y-1/2 translate-x-1/2 rounded-full bg-saffron/10 blur-3xl sm:h-96 sm:w-96" />
+        <div className="absolute bottom-0 left-0 h-64 w-64 -translate-x-1/2 translate-y-1/2 rounded-full bg-forest/10 blur-2xl sm:h-72 sm:w-72" />
 
         <Container className="relative z-10 text-center">
           <span className="text-saffron font-bold tracking-widest uppercase text-sm mb-4 block">

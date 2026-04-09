@@ -151,7 +151,7 @@ export default function GalleryPage() {
     <main className="pt-20 bg-beige-soft">
       {/* Hero Section */}
       <Section className="bg-charcoal text-white relative overflow-hidden py-24">
-        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-saffron/10 rounded-full blur-[120px] -translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-0 left-0 h-72 w-72 -translate-y-1/2 -translate-x-1/2 rounded-full bg-saffron/10 blur-3xl sm:h-80 sm:w-80" />
         <Container className="relative z-10 text-center">
           <span className="text-saffron font-bold tracking-widest uppercase text-sm mb-4 block">
             Life at BACE
@@ -248,7 +248,7 @@ export default function GalleryPage() {
                 size="lg"
                 onClick={handleLoadMore}
                 disabled={isLoading}
-                className="min-w-[200px] border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300"
+                className="min-w-40 border-2 border-charcoal text-charcoal hover:bg-charcoal hover:text-white transition-all duration-300"
               >
                 {isLoading ? (
                   <>

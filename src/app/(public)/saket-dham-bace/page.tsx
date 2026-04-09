@@ -1,6 +1,8 @@
 import BaceLocationPage, {
   defaultHistoryContent,
 } from "@/components/bace-location/BaceLocationPage";
+import BaceLocationSchema from "@/components/seo/BaceLocationSchema";
+import NapAddress from "@/components/seo/NapAddress";
 
 const sliderImages = [
   "https://images.unsplash.com/photo-1604608672516-8a3fbbf3d1cf",
@@ -25,18 +27,44 @@ const objectives = [
 
 export default function SaketDhamBacePage() {
   return (
-    <BaceLocationPage
-      locationName="Saket Dham"
-      locationSlug="saket-dham-bace"
-      subtitle="Spiritual Learning & Youth Transformation Hub"
-      description="Rooted in devotion and inspired by sacred traditions, Saket Dham BACE offers a nurturing environment where youth cultivate spiritual awareness, discipline, and a purposeful life journey."
-      sliderImages={sliderImages}
-      contactPhone="+91 9098765432"
-      contactEmail="saketdham.bace@gmail.com"
-      contactSubheading="Reach Saket Dham BACE"
-      objectives={objectives}
-      missionContent={missionContent}
-      historyContent={defaultHistoryContent}
-    />
+    <>
+      <BaceLocationSchema
+        name="Saket Dham BACE - IYF Bhopal"
+        address="Saket Nagar, Bhopal, Madhya Pradesh"
+        neighborhood="Saket Nagar"
+        url="https://iyfbhopal.in/saket-dham-bace"
+        lat={23.2069}
+        lng={77.4338}
+        description="Saket Dham BACE in Saket Nagar provides a disciplined, value-based student hostel environment in Bhopal."
+      />
+      <BaceLocationPage
+        locationName="Saket Dham"
+        locationSlug="saket-dham-bace"
+        heroHeading="Saket Dham BACE - ISKCON Vedic Hostel, Saket Nagar, Bhopal"
+        subtitle="Spiritual Learning & Youth Transformation Hub"
+        description="Rooted in devotion and inspired by sacred traditions, Saket Dham BACE offers a nurturing environment where youth cultivate spiritual awareness, discipline, and a purposeful life journey."
+        addressLine="Saket Nagar, Bhopal, Madhya Pradesh"
+        nearbyColleges={["Barkatullah University", "RGPV", "NRI Group of Institutions"]}
+        howToReach="Located in Saket Nagar, this BACE center is accessible from Kolar Road and nearby academic zones with reliable local transport options."
+        sliderImages={sliderImages}
+        contactPhone="+91 9098765432"
+        contactEmail="saketdham.bace@gmail.com"
+        contactSubheading="Reach Saket Dham BACE"
+        objectives={objectives}
+        missionContent={missionContent}
+        historyContent={defaultHistoryContent}
+      />
+      <div className="bg-charcoal px-6 py-8">
+        <div className="mx-auto max-w-6xl">
+          <NapAddress
+            name="Saket Dham BACE - IYF Bhopal"
+            street="Saket Nagar"
+            city="Bhopal"
+            state="Madhya Pradesh"
+            postalCode="462024"
+          />
+        </div>
+      </div>
+    </>
   );
 }

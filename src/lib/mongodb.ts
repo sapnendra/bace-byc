@@ -21,8 +21,16 @@ if (!cached) {
 
 function isTransientMongoError(error: unknown) {
   const message = error instanceof Error ? error.message : String(error || "");
+  const code =
+    typeof error === "object" && error !== null && "code" in error
+      ? String((error as { code?: unknown }).code || "")
+      : "";
+
   return (
     message.includes("EAI_AGAIN") ||
+    message.includes("ESERVFAIL") ||
+    code === "EAI_AGAIN" ||
+    code === "ESERVFAIL" ||
     message.includes("MongoServerSelectionError") ||
     message.includes("MongoNetworkError")
   );

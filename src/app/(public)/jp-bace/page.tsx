@@ -2,6 +2,8 @@ import BaceLocationPage, {
   defaultHistoryContent,
   defaultMissionContent,
 } from "@/components/bace-location/BaceLocationPage";
+import BaceLocationSchema from "@/components/seo/BaceLocationSchema";
+import NapAddress from "@/components/seo/NapAddress";
 
 const sliderImages = [
   "https://images.unsplash.com/photo-1582550945154-66ea8fff25e1",
@@ -22,18 +24,44 @@ const objectives = [
 
 export default function JpBacePage() {
   return (
-    <BaceLocationPage
-      locationName="Jagannath Puri"
-      locationSlug="jp-bace"
-      subtitle="Spiritual Learning & Youth Transformation Hub"
-      description="A sacred space in Bhopal where youth connect with spiritual wisdom, build discipline, and grow through devotion, knowledge, and community."
-      sliderImages={sliderImages}
-      contactPhone="+91 9876543210"
-      contactEmail="bace.jagannath@gmail.com"
-      contactSubheading="Reach Jagannath Puri BACE"
-      objectives={objectives}
-      missionContent={defaultMissionContent}
-      historyContent={defaultHistoryContent}
-    />
+    <>
+      <BaceLocationSchema
+        name="Jagannath Puri BACE - IYF Bhopal"
+        address="Anand Nagar, Bhopal, Madhya Pradesh"
+        neighborhood="Anand Nagar"
+        url="https://iyfbhopal.in/jp-bace"
+        lat={23.2599}
+        lng={77.4126}
+        description="Jagannath Puri BACE offers value-based hostel accommodation with satvik food and spiritual guidance for students in Bhopal."
+      />
+      <BaceLocationPage
+        locationName="Jagannath Puri"
+        locationSlug="jp-bace"
+        heroHeading="Jagannath Puri BACE - ISKCON Vedic Hostel, Anand Nagar, Bhopal"
+        subtitle="Spiritual Learning & Youth Transformation Hub"
+        description="A sacred space in Bhopal where youth connect with spiritual wisdom, build discipline, and grow through devotion, knowledge, and community."
+        addressLine="Anand Nagar, Bhopal, Madhya Pradesh"
+        nearbyColleges={["RGPV", "Barkatullah University", "Oriental Group of Institutes"]}
+        howToReach="Located in Anand Nagar, this center is accessible from central Bhopal and nearby student zones through local transport and city bus routes."
+        sliderImages={sliderImages}
+        contactPhone="+91 9876543210"
+        contactEmail="bace.jagannath@gmail.com"
+        contactSubheading="Reach Jagannath Puri BACE"
+        objectives={objectives}
+        missionContent={defaultMissionContent}
+        historyContent={defaultHistoryContent}
+      />
+      <div className="bg-charcoal px-6 py-8">
+        <div className="mx-auto max-w-6xl">
+          <NapAddress
+            name="Jagannath Puri BACE - IYF Bhopal"
+            street="Anand Nagar"
+            city="Bhopal"
+            state="Madhya Pradesh"
+            postalCode="462022"
+          />
+        </div>
+      </div>
+    </>
   );
 }

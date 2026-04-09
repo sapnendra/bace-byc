@@ -2,6 +2,8 @@ import BaceLocationPage, {
   defaultHistoryContent,
   defaultMissionContent,
 } from "@/components/bace-location/BaceLocationPage";
+import BaceLocationSchema from "@/components/seo/BaceLocationSchema";
+import NapAddress from "@/components/seo/NapAddress";
 
 const sliderImages = [
   "https://images.unsplash.com/photo-1609766857041-ed402ea8069a",
@@ -22,18 +24,44 @@ const objectives = [
 
 export default function BhaktivedantaBacePage() {
   return (
-    <BaceLocationPage
-      locationName="Bhaktivedanta"
-      locationSlug="bhaktivedanta-bace"
-      subtitle="Spiritual Learning & Youth Transformation Hub"
-      description="Inspired by the teachings of Srila Prabhupada, Bhaktivedanta BACE is a space where youth discover purpose, build character, and grow through spiritual wisdom, discipline, and meaningful association."
-      sliderImages={sliderImages}
-      contactPhone="+91 9988776655"
-      contactEmail="bhaktivedanta.bace@gmail.com"
-      contactSubheading="Reach Bhaktivedanta BACE"
-      objectives={objectives}
-      missionContent={defaultMissionContent}
-      historyContent={defaultHistoryContent}
-    />
+    <>
+      <BaceLocationSchema
+        name="Bhaktivedanta BACE - IYF Bhopal"
+        address="MP Nagar, Bhopal, Madhya Pradesh"
+        neighborhood="MP Nagar"
+        url="https://iyfbhopal.in/bhaktivedanta-bace"
+        lat={23.2348}
+        lng={77.4342}
+        description="Bhaktivedanta BACE in MP Nagar offers spiritual learning, satvik living, and academic discipline for students in central Bhopal."
+      />
+      <BaceLocationPage
+        locationName="Bhaktivedanta"
+        locationSlug="bhaktivedanta-bace"
+        heroHeading="Bhaktivedanta BACE - ISKCON Vedic Hostel, MP Nagar, Bhopal"
+        subtitle="Spiritual Learning & Youth Transformation Hub"
+        description="Inspired by the teachings of Srila Prabhupada, Bhaktivedanta BACE is a space where youth discover purpose, build character, and grow through spiritual wisdom, discipline, and meaningful association."
+        addressLine="MP Nagar, Bhopal, Madhya Pradesh"
+        nearbyColleges={["MANIT (NIT Bhopal)", "RGPV", "Barkatullah University"]}
+        howToReach="In the heart of MP Nagar, this center is close to major bus corridors and is easy to access from most college zones in Bhopal."
+        sliderImages={sliderImages}
+        contactPhone="+91 9988776655"
+        contactEmail="bhaktivedanta.bace@gmail.com"
+        contactSubheading="Reach Bhaktivedanta BACE"
+        objectives={objectives}
+        missionContent={defaultMissionContent}
+        historyContent={defaultHistoryContent}
+      />
+      <div className="bg-charcoal px-6 py-8">
+        <div className="mx-auto max-w-6xl">
+          <NapAddress
+            name="Bhaktivedanta BACE - IYF Bhopal"
+            street="MP Nagar"
+            city="Bhopal"
+            state="Madhya Pradesh"
+            postalCode="462011"
+          />
+        </div>
+      </div>
+    </>
   );
 }

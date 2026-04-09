@@ -17,7 +17,7 @@ export default function DonationPage() {
   return (
     <main className="min-h-screen bg-beige-soft pt-20">
       <Section className="relative overflow-hidden bg-charcoal py-20 text-white">
-        <div className="absolute right-0 top-0 h-[540px] w-[540px] -translate-y-1/3 translate-x-1/4 rounded-full bg-saffron/15 blur-[90px]" />
+        <div className="absolute right-0 top-0 h-72 w-72 -translate-y-1/3 translate-x-1/4 rounded-full bg-saffron/15 blur-3xl sm:h-96 sm:w-96" />
         <Container className="relative z-10 text-center">
           <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-gold">
             Support BACE Mission
@@ -41,7 +41,7 @@ export default function DonationPage() {
                 </p>
 
                 <div className="mt-6 rounded-xl border border-beige-200 bg-beige-soft p-4">
-                  <div className="mx-auto w-full max-w-[270px] overflow-hidden rounded-lg border border-beige-300 bg-white p-2">
+                  <div className="mx-auto w-full max-w-xs overflow-hidden rounded-lg border border-beige-300 bg-white p-2">
                     <Image
                       src="/images/donation-qr/donationQR.jpeg"
                       alt="BACE UPI QR Code"

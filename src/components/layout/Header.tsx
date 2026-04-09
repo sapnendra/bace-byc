@@ -13,13 +13,13 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -54,6 +54,8 @@ export default function Header() {
       label: "About",
       dropdown: [
         { href: "/about", label: "About Us" },
+        { href: "/prabhupada", label: "About Prabhupada" },
+        { href: "/iskcon-bhopal-byc", label: "ISKCON Bhopal BYC" },
         { href: "/testimonials", label: "Student Stories" },
         { href: "/reviews", label: "Share Experience" },
       ],
@@ -62,8 +64,8 @@ export default function Header() {
     { href: "/donation", label: "Donation" },
   ];
 
-  // On non-homepage, always show solid background
-  const showSolidBg = !isHomePage || isScrolled;
+  // Use one behavior on every page: transparent at top, boxed after scrolling.
+  const showSolidBg = isScrolled;
 
   // Toggle Dropdown for Mobile
   const toggleDropdown = (label: string) => {

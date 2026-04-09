@@ -80,7 +80,7 @@ export default function SeminarsMarquee() {
               >
                 <Image
                   src={seminar.image}
-                  alt={seminar.title}
+                  alt={`IYF Bhopal seminar: ${seminar.title} for BACE students`}
                   fill
                   className="object-cover group-hover/card:scale-110 transition-transform duration-500"
                 />
@@ -115,7 +115,7 @@ export default function SeminarsMarquee() {
               >
                 <Image
                   src={seminar.image}
-                  alt={seminar.title}
+                  alt={`IYF Bhopal seminar: ${seminar.title} for BACE students`}
                   fill
                   className="object-cover group-hover/card:scale-110 transition-transform duration-500"
                 />

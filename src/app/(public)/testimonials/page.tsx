@@ -11,12 +11,17 @@ export const metadata: Metadata = {
 };
 
 async function getApprovedReviews() {
-  await dbConnect();
-  const reviews = await Review.find({ approved: true })
-    .sort({ createdAt: -1 })
-    .lean();
+  try {
+    await dbConnect();
+    const reviews = await Review.find({ approved: true })
+      .sort({ createdAt: -1 })
+      .lean();
 
-  return JSON.parse(JSON.stringify(reviews));
+    return JSON.parse(JSON.stringify(reviews));
+  } catch (error) {
+    console.error("Testimonials fetch error:", error);
+    return [];
+  }
 }
 
 export default async function TestimonialsPage() {

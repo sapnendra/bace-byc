@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useCallback, useState } from "react";
+import Image from "next/image";
 import { X, ChevronLeft, ChevronRight, Image as ImageIcon } from "lucide-react";
 import type { GalleryItem } from "@/types/gallery";
 
@@ -85,10 +86,13 @@ export default function GalleryModal({
           {hasImages ? (
             <>
               {/* Image */}
-              <img
+              <Image
                 src={currentImages[currentImageIndex]}
-                alt={`${currentItem.title} - Image ${currentImageIndex + 1}`}
-                className="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+                alt={`IYF Bhopal BACE gallery: ${currentItem.title} image ${currentImageIndex + 1}`}
+                width={1600}
+                height={1000}
+                className="max-w-full max-h-full h-auto w-auto object-contain rounded-lg shadow-2xl animate-in zoom-in-95 duration-300"
+                priority
               />
 
               {/* Navigation Buttons */}

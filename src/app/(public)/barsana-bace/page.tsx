@@ -2,6 +2,8 @@ import BaceLocationPage, {
   defaultHistoryContent,
   defaultMissionContent,
 } from "@/components/bace-location/BaceLocationPage";
+import BaceLocationSchema from "@/components/seo/BaceLocationSchema";
+import NapAddress from "@/components/seo/NapAddress";
 
 const sliderImages = [
   "https://images.unsplash.com/photo-1605640840605-14ac1855827b",
@@ -22,18 +24,44 @@ const objectives = [
 
 export default function BarsanaBacePage() {
   return (
-    <BaceLocationPage
-      locationName="Barsana"
-      locationSlug="barsana-bace"
-      subtitle="Spiritual Learning & Youth Transformation Hub"
-      description="Immerse yourself in the devotional essence of Barsana, where youth are guided towards spiritual growth, strong values, and a meaningful life through knowledge, discipline, and divine association."
-      sliderImages={sliderImages}
-      contactPhone="+91 9012345678"
-      contactEmail="barsana.bace@gmail.com"
-      contactSubheading="Reach Barsana BACE"
-      objectives={objectives}
-      missionContent={defaultMissionContent}
-      historyContent={defaultHistoryContent}
-    />
+    <>
+      <BaceLocationSchema
+        name="Barsana BACE - IYF Bhopal"
+        address="Kokta Bypass, Bhopal, Madhya Pradesh"
+        neighborhood="Kokta Bypass"
+        url="https://iyfbhopal.in/barsana-bace"
+        lat={23.2895}
+        lng={77.4686}
+        description="Barsana BACE offers satvik hostel living and spiritual mentoring for students in the Kokta Bypass area of Bhopal."
+      />
+      <BaceLocationPage
+        locationName="Barsana"
+        locationSlug="barsana-bace"
+        heroHeading="Barsana BACE - ISKCON Vedic Hostel, Kokta Bypass, Bhopal"
+        subtitle="Spiritual Learning & Youth Transformation Hub"
+        description="Immerse yourself in the devotional essence of Barsana, where youth are guided towards spiritual growth, strong values, and a meaningful life through knowledge, discipline, and divine association."
+        addressLine="Kokta Bypass, Bhopal, Madhya Pradesh"
+        nearbyColleges={["RGPV", "LNCT Group", "Technocrats Institute of Technology"]}
+        howToReach="This center is near Kokta Bypass and can be reached conveniently from eastern and northern Bhopal through ring-road connectivity."
+        sliderImages={sliderImages}
+        contactPhone="+91 9012345678"
+        contactEmail="barsana.bace@gmail.com"
+        contactSubheading="Reach Barsana BACE"
+        objectives={objectives}
+        missionContent={defaultMissionContent}
+        historyContent={defaultHistoryContent}
+      />
+      <div className="bg-charcoal px-6 py-8">
+        <div className="mx-auto max-w-6xl">
+          <NapAddress
+            name="Barsana BACE - IYF Bhopal"
+            street="Kokta Bypass"
+            city="Bhopal"
+            state="Madhya Pradesh"
+            postalCode="462021"
+          />
+        </div>
+      </div>
+    </>
   );
 }

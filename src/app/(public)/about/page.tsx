@@ -25,8 +25,8 @@ export default async function AboutPage() {
     <main className="pt-20 bg-beige-soft">
       {/* Hero Section */}
       <Section className="bg-charcoal text-white relative overflow-hidden py-32">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-saffron/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-forest/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+        <div className="absolute top-0 right-0 h-80 w-80 -translate-y-1/2 translate-x-1/2 rounded-full bg-saffron/10 blur-3xl sm:h-96 sm:w-96" />
+        <div className="absolute bottom-0 left-0 h-72 w-72 -translate-x-1/2 translate-y-1/2 rounded-full bg-forest/10 blur-3xl sm:h-96 sm:w-96" />
 
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -34,7 +34,7 @@ export default async function AboutPage() {
               Our Story
             </span>
             <h1 className="text-5xl md:text-7xl font-serif font-bold mb-8 leading-tight">
-              Building Character,
+              About IYF Bhopal: Building Character,
               <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-saffron to-gold">
                 Empowering Youth

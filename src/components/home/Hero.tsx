@@ -9,7 +9,10 @@ import Container from "../ui/Container";
 
 export default function Hero() {
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[radial-gradient(circle_at_top_right,_#fdf6e3,_#f5f1e8_55%,_#f8f4ec)] pb-12 pt-28 lg:pb-16 lg:pt-32">
+    <section
+      aria-label="IYF Bhopal ISKCON BACE Vedic Hostel"
+      className="relative flex min-h-screen items-center overflow-hidden bg-[radial-gradient(circle_at_top_right,_#fdf6e3,_#f5f1e8_55%,_#f8f4ec)] pb-12 pt-28 lg:pb-16 lg:pt-32"
+    >
       <div className="absolute inset-0 pointer-events-none opacity-[0.2]">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -50,8 +53,7 @@ export default function Hero() {
               transition={{ duration: 0.75, delay: 0.08, ease: "easeOut" }}
               className="mb-6 text-4xl font-medium leading-[1.05] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
             >
-              Where <span className="text-saffron italic">Education</span>
-              <br className="hidden sm:block" /> Meets <span className="text-gold">Spiritual Wisdom</span>
+              IYF Bhopal & Vedic Hostel for Students in Bhopal
             </motion.h1>
 
             <motion.p
@@ -60,8 +62,8 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mx-auto mb-10 max-w-xl text-base leading-relaxed text-charcoal-light/90 sm:text-lg lg:mx-0"
             >
-              Transform your life through discipline, purpose, and Vedic knowledge. Join a
-              community that builds character, clarity, and confidence.
+              IYF Bhopal welcomes students to ISKCON BACE, a value-based vedic hostel in Bhopal
+              focused on discipline, character, academics, and spiritual growth.
             </motion.p>
 
             <motion.div
@@ -115,7 +117,7 @@ export default function Hero() {
               <div className="relative h-[22rem] w-full overflow-hidden rounded-xl sm:h-[27rem] lg:h-[33rem]">
                 <Image
                   src="https://images.unsplash.com/photo-1767353461394-7dce69402122?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Students engaging in learning and spiritual community activities"
+                  alt="Students at IYF Bhopal ISKCON BACE Vedic Hostel"
                   fill
                   priority
                   className="object-cover object-bottom transition-transform duration-700 group-hover:scale-105"
